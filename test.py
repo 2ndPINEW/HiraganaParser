@@ -7,6 +7,7 @@ import sys
 import termios
 import random
 import time
+import os
 
 endQuestionNumber = 20
 
@@ -358,6 +359,10 @@ class parser:
         else:
             return inputChkReturnObj(romanList, False)
 
+def clearConsole():
+    for i in range(50):
+        print()
+
 def charInput():
     fd = sys.stdin.fileno()
 
@@ -382,8 +387,7 @@ with open ('./question.json', 'r') as f:
 
 score = 0
 miss = 0
-for i in range(20):
-    print()
+clearConsole()
 print(str(endQuestionNumber) + "問のランダムな日本語が表示されます")
 input("エンターで開始 >> ")
 
@@ -406,6 +410,7 @@ while(True):
     print(ans["question"])
     print(ans["hiragana"])
     print(tmp_allowed)
+    print()
     while(True):
         newInput = charInput()
         obj = parser.newInput(ans["hiragana"], romans, newInput)
@@ -418,8 +423,7 @@ while(True):
             tmp_inputed += tmp.char * tmp.done
             tmp_allowed += tmp.char * tmp.allow[0]
             #print(tmp.char + ":" + str(tmp.allow) + ":" + str(tmp.done))
-        for i in range(20):
-            print()
+        clearConsole()
         if (obj.acceptInput):
             print("Score: " + str(score))
             print()
@@ -430,13 +434,13 @@ while(True):
         else:
             miss += 1
             print("Not allow: " + newInput)
+            print()
             print(ans["question"])
             print(ans["hiragana"])
             print(tmp_allowed)
             print(tmp_inputed)
         if (isComplete):
-            for i in range(30):
-                print()
+            clearConsole()
             score += 1
             print("Complete: " + str(score))
             print()
@@ -445,8 +449,7 @@ while(True):
 endTime = time.time()
 diffTime = endTime - startTime
 
-for i in range(20):
-    print()
+clearConsole()
 
 print('かかった時間　: ' + str(diffTime))
 print('ミスタイプ　　: ' + str(miss))
