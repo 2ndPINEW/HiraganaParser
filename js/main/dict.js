@@ -1,0 +1,663 @@
+
+jsonData = {
+    "one": [
+        {
+            "key": "あ",
+            "origin": ["a"]
+        },
+        {
+            "key": "い",
+            "origin": ["i"]
+        },
+        {
+            "key": "う",
+            "origin": ["u"]
+        },
+        {
+            "key": "え",
+            "origin": ["e"]
+        },
+        {
+            "key": "お",
+            "origin": ["o"]
+        },
+        {
+            "key": "か",
+            "origin": ["ka"]
+        },
+        {
+            "key": "き",
+            "origin": ["ki"]
+        },
+        {
+            "key": "く",
+            "origin": ["ku"]
+        },
+        {
+            "key": "け",
+            "origin": ["ke"]
+        },
+        {
+            "key": "こ",
+            "origin": ["ko"]
+        },
+        {
+            "key": "さ",
+            "origin": ["sa"]
+        },
+        {
+            "key": "し",
+            "origin": ["si", "shi"]
+        },
+        {
+            "key": "す",
+            "origin": ["su"]
+        },
+        {
+            "key": "せ",
+            "origin": ["se"]
+        },
+        {
+            "key": "そ",
+            "origin": ["so"]
+        },
+        {
+            "key": "た",
+            "origin": ["ta"]
+        },
+        {
+            "key": "ち",
+            "origin": ["ti", "chi"]
+        },
+        {
+            "key": "つ",
+            "origin": ["tu", "tsu"]
+        },
+        {
+            "key": "て",
+            "origin": ["te"]
+        },
+        {
+            "key": "と",
+            "origin": ["to"]
+        },
+        {
+            "key": "な",
+            "origin": ["na"]
+        },
+        {
+            "key": "に",
+            "origin": ["ni"]
+        },
+        {
+            "key": "ぬ",
+            "origin": ["nu"]
+        },
+        {
+            "key": "ね",
+            "origin": ["ne"]
+        },
+        {
+            "key": "の",
+            "origin": ["no"]
+        },
+        {
+            "key": "は",
+            "origin": ["ha"]
+        },
+        {
+            "key": "ひ",
+            "origin": ["hi"]
+        },
+        {
+            "key": "ふ",
+            "origin": ["hu", "fu"]
+        },
+        {
+            "key": "へ",
+            "origin": ["he"]
+        },
+        {
+            "key": "ほ",
+            "origin": ["ho"]
+        },
+        {
+            "key": "ま",
+            "origin": ["ma"]
+        },
+        {
+            "key": "み",
+            "origin": ["mi"]
+        },
+        {
+            "key": "む",
+            "origin": ["mu"]
+        },
+        {
+            "key": "め",
+            "origin": ["me"]
+        },
+        {
+            "key": "も",
+            "origin": ["mo"]
+        },
+        {
+            "key": "や",
+            "origin": ["ya"]
+        },
+        {
+            "key": "ゆ",
+            "origin": ["yu"]
+        },
+        {
+            "key": "よ",
+            "origin": ["yo"]
+        },
+        {
+            "key": "ら",
+            "origin": ["ra"]
+        },
+        {
+            "key": "り",
+            "origin": ["ri"]
+        },
+        {
+            "key": "る",
+            "origin": ["ru"]
+        },
+        {
+            "key": "れ",
+            "origin": ["re"]
+        },
+        {
+            "key": "ろ",
+            "origin": ["ro"]
+        },
+        {
+            "key": "わ",
+            "origin": ["wa"]
+        },
+        {
+            "key": "を",
+            "origin": ["wo"]
+        },
+        {
+            "key": "ん",
+            "origin": ["nn", "n"]
+        },
+        {
+            "key": "が",
+            "origin": ["ga"]
+        },
+        {
+            "key": "ぎ",
+            "origin": ["gi"]
+        },
+        {
+            "key": "ぐ",
+            "origin": ["gu"]
+        },
+        {
+            "key": "げ",
+            "origin": ["ge"]
+        },
+        {
+            "key": "ご",
+            "origin": ["go"]
+        },
+        {
+            "key": "ざ",
+            "origin": ["za"]
+        },
+        {
+            "key": "じ",
+            "origin": ["zi", "ji"]
+        },
+        {
+            "key": "ず",
+            "origin": ["zu"]
+        },
+        {
+            "key": "ぜ",
+            "origin": ["ze"]
+        },
+        {
+            "key": "ぞ",
+            "origin": ["zo"]
+        },
+        {
+            "key": "だ",
+            "origin": ["da"]
+        },
+        {
+            "key": "ぢ",
+            "origin": ["di"]
+        },
+        {
+            "key": "づ",
+            "origin": ["du"]
+        },
+        {
+            "key": "で",
+            "origin": ["de"]
+        },
+        {
+            "key": "ど",
+            "origin": ["do"]
+        },
+        {
+            "key": "ば",
+            "origin": ["ba"]
+        },
+        {
+            "key": "び",
+            "origin": ["bi"]
+        },
+        {
+            "key": "ぶ",
+            "origin": ["bu"]
+        },
+        {
+            "key": "べ",
+            "origin": ["be"]
+        },
+        {
+            "key": "ぼ",
+            "origin": ["bo"]
+        },
+        {
+            "key": "ぱ",
+            "origin": ["pa"]
+        },
+        {
+            "key": "ぴ",
+            "origin": ["pi"]
+        },
+        {
+            "key": "ぷ",
+            "origin": ["pu"]
+        },
+        {
+            "key": "ぺ",
+            "origin": ["pe"]
+        },
+        {
+            "key": "ぽ",
+            "origin": ["po"]
+        },
+        {
+            "key": "ぁ",
+            "origin": ["la", "xa"]
+        },
+        {
+            "key": "ぃ",
+            "origin": ["li", "xi"]
+        },
+        {
+            "key": "ぅ",
+            "origin": ["lu", "xu"]
+        },
+        {
+            "key": "ぇ",
+            "origin": ["le", "xe"]
+        },
+        {
+            "key": "ぉ",
+            "origin": ["lo", "xo"]
+        },
+        {
+            "key": "ゃ",
+            "origin": ["lya", "xya"]
+        },
+        {
+            "key": "ゅ",
+            "origin": ["lyu", "xyu"]
+        },
+        {
+            "key": "ょ",
+            "origin": ["lyo", "xyo"]
+        },
+        {
+            "key": "っ",
+            "origin": ["ltu", "xtu"]
+        },
+        {
+            "key": "ゔ",
+            "origin": ["vu"]
+        },
+        {
+            "key": "ー",
+            "origin": ["-"]
+        },
+        {
+            "key": "？",
+            "origin": ["?"]
+        },
+        {
+            "key": "！",
+            "origin": ["!"]
+        },
+        {
+            "key": "、",
+            "origin": [",", "、"]
+        },
+        {
+            "key": "。",
+            "origin": [".", "。"]
+        }
+    ],
+    "two": [
+        {
+            "key": "きゃ",
+            "origin": ["kya"]
+        },
+        {
+            "key": "きぃ",
+            "origin": ["kyi"]
+        },
+        {
+            "key": "きゅ",
+            "origin": ["kyu"]
+        },
+        {
+            "key": "きぇ",
+            "origin": ["kye"]
+        },
+        {
+            "key": "きょ",
+            "origin": ["kyo"]
+        },
+        {
+            "key": "しゃ",
+            "origin": ["sya", "sha"]
+        },
+        {
+            "key": "しぃ",
+            "origin": ["syi"]
+        },
+        {
+            "key": "しゅ",
+            "origin": ["syu", "shu"]
+        },
+        {
+            "key": "しぇ",
+            "origin": ["sye", "she"]
+        },
+        {
+            "key": "しょ",
+            "origin": ["syo", "sho"]
+        },
+        {
+            "key": "ちゃ",
+            "origin": ["tya"]
+        },
+        {
+            "key": "ちぃ",
+            "origin": ["tyi"]
+        },
+        {
+            "key": "ちゅ",
+            "origin": ["tyu"]
+        },
+        {
+            "key": "ちぇ",
+            "origin": ["tye"]
+        },
+        {
+            "key": "ちょ",
+            "origin": ["tyo"]
+        },
+        {
+            "key": "てぃ",
+            "origin": ["thi"]
+        },
+        {
+            "key": "てゅ",
+            "origin": ["thu"]
+        },
+        {
+            "key": "てぇ",
+            "origin": ["the"]
+        },
+        {
+            "key": "てょ",
+            "origin": ["tho"]
+        },
+        {
+            "key": "にゃ",
+            "origin": ["nya"]
+        },
+        {
+            "key": "にぃ",
+            "origin": ["nyi"]
+        },
+        {
+            "key": "にゅ",
+            "origin": ["nyu"]
+        },
+        {
+            "key": "にぇ",
+            "origin": ["nyu"]
+        },
+        {
+            "key": "にょ",
+            "origin": ["nyu"]
+        },
+        {
+            "key": "ひゃ",
+            "origin": ["hya"]
+        },
+        {
+            "key": "ひぃ",
+            "origin": ["hyi"]
+        },
+        {
+            "key": "ひゅ",
+            "origin": ["hyu"]
+        },
+        {
+            "key": "ひぇ",
+            "origin": ["hye"]
+        },
+        {
+            "key": "ひょ",
+            "origin": ["hyo"]
+        },
+        {
+            "key": "みゃ",
+            "origin": ["mya"]
+        },
+        {
+            "key": "みぃ",
+            "origin": ["myi"]
+        },
+        {
+            "key": "みゅ",
+            "origin": ["myu"]
+        },
+        {
+            "key": "みぇ",
+            "origin": ["mye"]
+        },
+        {
+            "key": "みょ",
+            "origin": ["myo"]
+        },
+        {
+            "key": "りゃ",
+            "origin": ["rya"]
+        },
+        {
+            "key": "りぃ",
+            "origin": ["ryi"]
+        },
+        {
+            "key": "りゅ",
+            "origin": ["ryu"]
+        },
+        {
+            "key": "りぇ",
+            "origin": ["rye"]
+        },
+        {
+            "key": "りょ",
+            "origin": ["ryo"]
+        },
+        {
+            "key": "じゃ",
+            "origin": ["ja", "zya"]
+        },
+        {
+            "key": "ふぁ",
+            "origin": ["fa"]
+        },
+        {
+            "key": "ふぃ",
+            "origin": ["fi"]
+        },
+        {
+            "key": "ふぇ",
+            "origin": ["fe"]
+        },
+        {
+            "key": "ふぉ",
+            "origin": ["fo"]
+        },
+        {
+            "key": "ぎゃ",
+            "origin": ["gya"]
+        },
+        {
+            "key": "ぎぃ",
+            "origin": ["gyi"]
+        },
+        {
+            "key": "ぎゅ",
+            "origin": ["gyu"]
+        },
+        {
+            "key": "ぎぇ",
+            "origin": ["gye"]
+        },
+        {
+            "key": "ぎょ",
+            "origin": ["gyo"]
+        },
+        {
+            "key": "じゃ",
+            "origin": ["zya", "ja", "jya"]
+        },
+        {
+            "key": "じぃ",
+            "origin": ["zyi", "jyi"]
+        },
+        {
+            "key": "じゅ",
+            "origin": ["zyu", "ju", "jyu"]
+        },
+        {
+            "key": "じぇ",
+            "origin": ["zye", "je", "jye"]
+        },
+        {
+            "key": "じょ",
+            "origin": ["zyo", "jo", "jyo"]
+        },
+        {
+            "key": "ぢゃ",
+            "origin": ["dya"]
+        },
+        {
+            "key": "ぢぃ",
+            "origin": ["dyi"]
+        },
+        {
+            "key": "ぢゅ",
+            "origin": ["dyu"]
+        },
+        {
+            "key": "ぢぇ",
+            "origin": ["dye"]
+        },
+        {
+            "key": "ぢょ",
+            "origin": ["dyo"]
+        },
+        {
+            "key": "びゃ",
+            "origin": ["bya"]
+        },
+        {
+            "key": "びぃ",
+            "origin": ["byi"]
+        },
+        {
+            "key": "びゅ",
+            "origin": ["byu"]
+        },
+        {
+            "key": "びぇ",
+            "origin": ["bye"]
+        },
+        {
+            "key": "びょ",
+            "origin": ["byo"]
+        },
+        {
+            "key": "ぴゃ",
+            "origin": ["pya"]
+        },
+        {
+            "key": "ぴぃ",
+            "origin": ["pyi"]
+        },
+        {
+            "key": "ぴゅ",
+            "origin": ["pyu"]
+        },
+        {
+            "key": "ぴぇ",
+            "origin": ["pye"]
+        },
+        {
+            "key": "ぴょ",
+            "origin": ["pyo"]
+        },
+        {
+            "key": "ゔぁ",
+            "origin": ["va"]
+        },
+        {
+            "key": "ゔぃ",
+            "origin": ["vi"]
+        },
+        {
+            "key": "ゔぇ",
+            "origin": ["ve"]
+        },
+        {
+            "key": "ゔぉ",
+            "origin": ["vo"]
+        },
+        {
+            "key": "でゃ",
+            "origin": ["dha"]
+        },
+        {
+            "key": "でぃ",
+            "origin": ["dhi"]
+        },
+        {
+            "key": "でゅ",
+            "origin": ["dhu"]
+        },
+        {
+            "key": "でぇ",
+            "origin": ["dhe"]
+        },
+        {
+            "key": "でょ",
+            "origin": ["dho"]
+        }
+    ]
+}
