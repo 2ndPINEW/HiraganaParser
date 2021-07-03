@@ -544,23 +544,23 @@
         },
         {
             "key": "じゃ",
-            "origin": ["zya", "ja"]
+            "origin": ["zya", "ja", "jya"]
         },
         {
             "key": "じぃ",
-            "origin": ["zyi", "ji"]
+            "origin": ["zyi", "jyi"]
         },
         {
             "key": "じゅ",
-            "origin": ["jyu", "ju"]
+            "origin": ["zyu", "ju", "jyu"]
         },
         {
             "key": "じぇ",
-            "origin": ["zye", "je"]
+            "origin": ["zye", "je", "jye"]
         },
         {
             "key": "じょ",
-            "origin": ["zyo", "jo"]
+            "origin": ["zyo", "jo", "jyo"]
         },
         {
             "key": "ぢゃ",
