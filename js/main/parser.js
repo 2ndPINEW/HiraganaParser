@@ -361,9 +361,6 @@ class Parser {
                     romanList[index].done += 1
                     return new inputChkReturnObj(romanList, true)
                 }
-                else {
-                    return new inputChkReturnObj(romanList)
-                }
             }
         }
 
@@ -398,7 +395,6 @@ class Parser {
                             notParsedText = answer.replace(parsedText + addText, '')
                             let additionalList = tmpInputCheckReturnObj.kanaToRoman(notParsedText)
                             parsedRomanList = parsedRomanList.concat(additionalList)
-                            // // console.log(parsedRomanList)
                             return new inputChkReturnObj(parsedRomanList, true)
                         }
                     }
@@ -409,7 +405,6 @@ class Parser {
         let notParsedRomanList = parsedRomanList.filter(item => !item.parsed)
         parsedRomanList = parsedRomanList.filter(item => item.done > 0 && item.parsed)
 
-        // // console.log(parsedRomanList)
         notParsedRomanList.forEach((notParsed) => {
             if (notParsed.done > 0) {
                 notParsedTarget += notParsed.char.repeat(notParsed.done)
@@ -459,14 +454,12 @@ class Parser {
             }
         })
         if (find) {
-            // // console.log('find')
             notParsedText = notParsedText.replace(hiragana, "")
             let additionalList = tmpInputCheckReturnObj.kanaToRoman(notParsedText)
             parsedRomanList = parsedRomanList.concat(additionalList)
             return new inputChkReturnObj(parsedRomanList, true)
         }
         else {
-            // // console.log('notfound')
             return new inputChkReturnObj(romanList)
         }
 
@@ -514,8 +507,3 @@ class Typing {
         this._updateInputedInfo(tmp.romanList)
     }
 }
-
-// let typing = new Typing({hiragana: 'てぃっしゅ'})
-// typing.newInput('t')
-// typing.newInput('e')
-// // // console.log(typing)
