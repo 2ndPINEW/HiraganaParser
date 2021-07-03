@@ -351,12 +351,14 @@ class Parser {
             }
         }
 
+        // 直前の文字がちっちゃいっでそれの入力が完了していて、次が未入力ならRomanに沿わない場合は無視
         for (let index = 0; index < romanList.length; index++) {
             let roman = romanList[index]
             if (index > 1 &&
                 romanList[index - 1].done >= 2 &&
                 romanList[index - 1].done == Math.max.apply(null, romanList[index - 1].allow) && 
-                romanList[index - 1].char != 'n'){
+                romanList[index - 1].char != 'n' &&
+                roman.done < 1){
                 if (roman.char == newInput && roman.done < Math.max.apply(null, roman.allow)) {
                     romanList[index].done += 1
                     return new inputChkReturnObj(romanList, true)
