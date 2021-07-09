@@ -1,5 +1,5 @@
 body {
-    background-color: #FFEED9;
+    background-color: var(--color-surface);
 }
 
 .cat_hand {
@@ -29,7 +29,7 @@ body {
 
 .question_text {
     font-size: 120px;
-    color: #805959;
+    color: var(--color-primary);
     font-weight: bold;
 }
 
@@ -38,7 +38,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    color: #805959;
+    color: var(--color-primary);
 }
 
 .not_inputed {
