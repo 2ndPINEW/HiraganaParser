@@ -11,6 +11,7 @@ body {
 .ranking_selector {
     border-radius: 16px;
     border: solid 8px var(--color-primary);
+    padding: 8px;
 }
 
 .selector_title {
@@ -18,7 +19,22 @@ body {
     font-weight: bold;
     text-align: center;
     color: var(--color-primary);
-    margin: 16px;
+    padding: 8px;
+}
+
+.selector_content {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--color-primary);
+    text-align: center;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.selector_content.selected {
+    background-color: var(--color-primary);
+    color: white;
+    border-radius: 16px;
 }
 
 .ranking_list {

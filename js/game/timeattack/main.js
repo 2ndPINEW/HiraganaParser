@@ -7,7 +7,6 @@ let startTime
 let missCount
 
 (function() {
-    location.href = '../'
     addKeyEventListener()
     console.log('main.js ready')
 })()
@@ -63,6 +62,11 @@ function addKeyEventListener () {
             return
         }
         if (event.key == 'Escape') {
+            if (!isGaming) {
+                event.preventDefault()
+                location.href = '../'
+                return
+            }
             Pose()
             return
         }

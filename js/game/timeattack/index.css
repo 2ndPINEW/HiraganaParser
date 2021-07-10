@@ -1,0 +1,64 @@
+
+.cat_hand {
+    width: 160px;
+    position: absolute;
+    top: -180px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.score_bar {
+    width: 80vw;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.question_area {
+    width: 100vw;
+    position: fixed;
+    top: 12%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.question_text {
+    font-size: 120px;
+    color: var(--color-primary);
+    font-weight: bold;
+}
+
+.question_roma {
+    font-size: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: var(--color-primary);
+}
+
+.not_inputed {
+    color: #AC9090;
+}
+
+.result_area {
+    width: 100vw;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.ring {
+    width: 100vw;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+}
+
+.debug_text {
+    position: fixed;
+    z-index: 1;
+}
