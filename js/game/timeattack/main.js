@@ -7,16 +7,22 @@ let startTime
 let missCount
 
 let count
+let diff
 
 let nextQuestionText
 
 (function() {
     addKeyEventListener()
+    diff = 9999999999999999999999999999999999999999999
+    const btn = document.querySelector('.ranking_upload_button')
+    btn.style.display = 'none'
     console.log('main.js ready')
 })()
 
 function Start () {
     if (isGaming) return
+    const btn = document.querySelector('.ranking_upload_button')
+    btn.style.display = 'none'
     isGaming = true
     startTime = Date.now()
     score = 0
@@ -43,10 +49,11 @@ function nextQuestion () {
     
     if (count > MAX) {
         isGaming = false
-        const diff = (Date.now() - startTime) / 1000
+        diff = (Date.now() - startTime) / 1000
         updateQuestionArea('終了!', diff + '秒', ' : ' + missCount + 'みす', '')
+        const btn = document.querySelector('.ranking_upload_button')
+        btn.style.display = 'block'
         return
-    
     }
 
     question = nextQuestionText
@@ -122,4 +129,9 @@ function updateCountBar () {
     const scorePercent = count / MAX
     const position = width * scorePercent + padding
     cat_hand.style.left = position + 'px'
+}
+
+function goUploadRankingPage () {
+    localStorage.setItem('time', diff)
+    location.href = './upload.html'
 }
