@@ -20,6 +20,9 @@ function onSelectRanking (name) {
     const element = document.querySelector('.' + selectedRanking)
     element.classList.add('selected')
 
+    const rankingTitleElement = document.querySelector('.ranking_title')
+    rankingTitleElement.innerHTML = element.innerHTML
+
     fetchRankings(selectedRanking)
 }
 
