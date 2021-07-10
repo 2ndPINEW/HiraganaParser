@@ -45,6 +45,13 @@ function fetchRankings (name) {
         createRankingList(res.target.response, '秒')
     }
 
+    request.onerror = (res) => {
+        // fetch中に別のランキングが選択されたら反映しない
+        if (name != selectedRanking) return
+        destroyRankingList()
+        addRankingListItemElement('- ' , 'えらー', '')
+    }
+
     request.send()
 }
 
