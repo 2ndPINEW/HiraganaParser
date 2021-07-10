@@ -1,4 +1,4 @@
-const MAX = 10
+const MAX = 350
 
 let typing
 let isGaming
