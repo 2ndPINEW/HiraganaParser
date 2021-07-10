@@ -1,10 +1,14 @@
-const MAX = 20
+const MAX = 10
 
 let typing
 let isGaming
 let score
 let startTime
 let missCount
+
+let count
+
+let nextQuestionText
 
 (function() {
     addKeyEventListener()
@@ -16,13 +20,15 @@ function Start () {
     isGaming = true
     startTime = Date.now()
     score = 0
+    count = 0
+    nextQuestionText = null
     missCount = 0
     nextQuestion()
 }
 
 function Pose () {
     isGaming = false
-    updateQuestionArea('停止', 'えんたーきーでさいしょから', '')
+    updateQuestionArea('停止', 'えんたーきーでさいしょから', '', '')
 }
 
 function getRandomInt(max) {
@@ -30,37 +36,58 @@ function getRandomInt(max) {
 }
 
 function nextQuestion () {
+
     updateCountBar()
+    
     score += 1
-    if (score > MAX) {
+    
+    if (count > MAX) {
         isGaming = false
         const diff = (Date.now() - startTime) / 1000
-        updateQuestionArea('終了!', diff + '秒', ' : ' + missCount + 'みす')
+        updateQuestionArea('終了!', diff + '秒', ' : ' + missCount + 'みす', '')
         return
+    
     }
-    question = questions[getRandomInt(questions.length)]
+
+    question = nextQuestionText
+
+    if (!nextQuestionText) {
+        number = getRandomInt(questions.length)
+        question = questions[number]
+        questions.splice(number, 1)
+    }
+    number = getRandomInt(questions.length)
+    nextQuestionText = questions[number]
+    questions.splice(number, 1)
+    
     typing = new Typing({hiragana: question.hiragana, question: question.question})
-    updateQuestionArea(typing.ans.question, typing.inputed, typing.notInputed)
+    
+    updateQuestionArea(typing.ans.question, typing.inputed, typing.notInputed, nextQuestionText.question)
 }
 
-function updateQuestionArea (ans, inputed, not_inputed) {
+function updateQuestionArea (ans, inputed, not_inputed, next_question_text) {
     const question_text = document.querySelector('.question_text')
     const question_inputed = document.querySelector('.inputed')
     const question_not_inputed = document.querySelector('.not_inputed')
+    const next_question　= document.querySelector('.next_question_text')
 
     question_text.innerHTML = ans
     question_inputed.innerHTML = inputed
     question_not_inputed.innerHTML = not_inputed
+    next_question.innerHTML = next_question_text
 }
 
 function addKeyEventListener () {
-    document.body.addEventListener('keydown',
-    event => {
+
+    document.body.addEventListener('keydown', event => {
+        
         console.log(event.key)
+        
         if (event.key == 'Enter') {
             Start()
             return
         }
+        
         if (event.key == 'Escape') {
             if (!isGaming) {
                 event.preventDefault()
@@ -70,12 +97,16 @@ function addKeyEventListener () {
             Pose()
             return
         }
+        
         if (isGaming) {
             typing.newInput(event.key)
-            if (!typing.isAcceptInput) {
+            if (typing.isAcceptInput) {
+                count ++
+            } else {
                 missCount ++
             }
-            updateQuestionArea(typing.ans.question, typing.inputed, typing.notInputed)
+            updateQuestionArea(typing.ans.question, typing.inputed, typing.notInputed, nextQuestionText.question)
+            updateCountBar()
             if (typing.notInputed.length == 0) {
                 nextQuestion()
             }
@@ -88,7 +119,7 @@ function updateCountBar () {
     const wwidth = window.innerWidth
     const padding = wwidth * 0.1 + 80
     const width = wwidth - padding * 2
-    const scorePercent = score / MAX
+    const scorePercent = count / MAX
     const position = width * scorePercent + padding
     cat_hand.style.left = position + 'px'
 }

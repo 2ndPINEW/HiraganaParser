@@ -42,6 +42,13 @@
     color: #AC9090;
 }
 
+.next_question_text {
+    font-size: 80px;
+    text-align: right;
+    color: #AC9090;
+    padding: 64px 64px 0 0;
+}
+
 .result_area {
     width: 100vw;
     position: fixed;

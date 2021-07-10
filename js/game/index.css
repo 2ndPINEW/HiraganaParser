@@ -34,7 +34,7 @@
     color: var(--color-primary);
     font-weight: bold;
     border-radius: 32px;
-    border: solid 4px var(--color-primary);
+    border: solid 6px var(--color-primary);
     padding: 16px;
     width: 600px;
     margin: 16px auto;
