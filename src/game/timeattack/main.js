@@ -56,6 +56,10 @@ function nextQuestion () {
         return
     }
 
+    if(questions.length == 0) {
+        questions = master_questions.slice(0, master_questions.length)
+    }
+
     question = nextQuestionText
 
     if (!nextQuestionText) {
