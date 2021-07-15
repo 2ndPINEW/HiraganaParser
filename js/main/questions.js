@@ -4,10 +4,6 @@ questions = [
         "hiragana": "となりのねこはよくかきくうねこだ"
     },
     {
-        "question": "エヴァンゲリオン",
-        "hiragana": "えゔぁんげりおん"
-    },
-    {
         "question": "発電所",
         "hiragana": "はつでんしょ"
     },
@@ -20,16 +16,8 @@ questions = [
         "hiragana": "はかいしょうどう"
     },
     {
-        "question": "ワニ口クリップ",
-        "hiragana": "わにくちくりっぷ"
-    },
-    {
         "question": "オートレース",
         "hiragana": "おーとれーす"
-    },
-    {
-        "question": "スターバックスコーヒー",
-        "hiragana": "すたーばっくすこーひー"
     },
     {
         "question": "延長コード",
@@ -42,10 +30,6 @@ questions = [
     {
         "question": "トロッコ問題",
         "hiragana": "とろっこもんだい"
-    },
-    {
-        "question": "サイコパス梅垣まじおもろい",
-        "hiragana": "さいこぱすうめがきまじおもろい"
     },
     {
         "question": "ティラノサウルス",
@@ -72,28 +56,12 @@ questions = [
         "hiragana": "ねくろまんさー"
     },
     {
-        "question": "トリスカイデカフォビア",
-        "hiragana": "とりすかいでかふぉびあ"
-    },
-    {
         "question": "椅子取りゲーム",
         "hiragana": "いすとりげーむ"
     },
     {
-        "question": "ガーデンゴルフ",
-        "hiragana": "がーでんごるふ"
-    },
-    {
-        "question": "骨伝導イヤホン",
-        "hiragana": "こつでんどういやほん"
-    },
-    {
         "question": "ポケットティッシュ",
         "hiragana": "ぽけっとてぃっしゅ"
-    },
-    {
-        "question": "スライディング土下座",
-        "hiragana": "すらいでぃんぐどげざ"
     },
     {
         "question": "ご当地アイドル",
@@ -120,20 +88,8 @@ questions = [
         "hiragana": "たんくとっぷふぇすてぃばる"
     },
     {
-        "question": "カーラーの救命曲線",
-        "hiragana": "かーらーのきゅうめいきょくせん"
-    },
-    {
-        "question": "鍛冶場の馬鹿力",
-        "hiragana": "かじばのばかぢから"
-    },
-    {
         "question": "ハッピーバースデー",
         "hiragana": "はっぴーばーすでー"
-    },
-    {
-        "question": "アンサイクロペディア",
-        "hiragana": "あんさいくろぺでぃあ"
     },
     {
         "question": "アイデンティティ",
@@ -164,10 +120,6 @@ questions = [
         "hiragana": "ぽいんとかーど"
     },
     {
-        "question": "八咫烏",
-        "hiragana": "やたがらす"
-    },
-    {
         "question": "クリームあんみつ",
         "hiragana": "くりーむあんみつ"
     },
@@ -176,16 +128,8 @@ questions = [
         "hiragana": "しみゅれーしょん"
     },
     {
-        "question": "馬鹿馬鹿しい",
-        "hiragana": "ばかばかしい"
-    },
-    {
         "question": "センチメンタル",
         "hiragana": "せんちめんたる"
-    },
-    {
-        "question": "セーフティネット",
-        "hiragana": "せーふてぃねっと"
     },
     {
         "question": "カーブミラー",
@@ -240,14 +184,6 @@ questions = [
         "hiragana": "れいとうみかん"
     },
     {
-        "question": "鍔迫り合い",
-        "hiragana": "つばぜりあい"
-    },
-    {
-        "question": "地震雲",
-        "hiragana": "じしんぐも"
-    },
-    {
         "question": "シベリア送り",
         "hiragana": "しべりあおくり"
     },
@@ -276,10 +212,6 @@ questions = [
         "hiragana": "はっぴーえんど"
     },
     {
-        "question": "ベテルギウス",
-        "hiragana": "べてるぎうす"
-    },
-    {
         "question": "ハンドスピナー",
         "hiragana": "はんどすぴなー"
     },
@@ -290,10 +222,6 @@ questions = [
     {
         "question": "アトラクション",
         "hiragana": "あとらくしょん"
-    },
-    {
-        "question": "感情のバイアス",
-        "hiragana": "かんじょうのばいあす"
     },
     {
         "question": "アヒージョ",
@@ -324,41 +252,26 @@ questions = [
         "hiragana": "たなばたかざり"
     },
     {
-        "question": "インターフェイスデザイン",
-        "hiragana": "いんたーふぇいすでざいん"
+        "question": "新型コロナウイルス",
+        "hiragana": "しんがたころなういるす"
     },
     {
-        "question": "アルフォート",
-        "hiragana": "あるふぉーと"
-    },
-    {
-        "question": "眼鏡堅麺麭",
-        "hiragana": "めがねかたぱん"
-    },
-    {
-        "question": "コロナワクチン",
-        "hiragana": "ころなわくちん"
-    },
-    {
-        "question": "ユークリッドの互除法",
-        "hiragana": "ゆーくりっどのごじょほう"
-    },
-    {
-        "question": "散る桜ほど美しい事を知る",
-        "hiragana": "ちるさくらほどうつくしいことをしる"
-    },{
         "question": "お布団しか勝たん",
         "hiragana": "おふとんしかかたん"
-    },{
+    },
+    {
         "question": "パラレルスペック",
         "hiragana": "ぱられるすぺっく"
-    },{
+    },
+    {
         "question": "日向坂",
         "hiragana": "ひなたざか"
-    },{
+    },
+    {
         "question": "ライスシャワー",
         "hiragana": "らいすしゃわー"
-    },{
+    },
+    {
         "question": "マンハッタンカフェ",
         "hiragana": "まんはったんかふぇ"
     }
