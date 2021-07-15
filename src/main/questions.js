@@ -1,4 +1,4 @@
-questions = [
+master_questions = [
     {
         "question": "隣の猫はよく柿食う猫だ",
         "hiragana": "となりのねこはよくかきくうねこだ"
@@ -276,3 +276,5 @@ questions = [
         "hiragana": "まんはったんかふぇ"
     }
 ]
+
+questions = master_questions.slice(0, master_questions.length)
