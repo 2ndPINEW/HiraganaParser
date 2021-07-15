@@ -1,7 +1,7 @@
 let time
 
 (function() {
-    time = 9999999999999999999999999999999999999999999
+    time = 99999
     target = location.href.replace('upload.html', '')
 
     nickName = localStorage.getItem('nick_name')
@@ -46,28 +46,32 @@ function upload () {
     data.handle_name = nickName
     data.time = time
 
-    json = JSON.stringify(data)
+    postData('https://typing-ranking-server.herokuapp.com/post_score', data)
+        .then(data => {
+            const uploadingBtn = document.querySelector('.uploading')
+            uploadingBtn.style.display = 'none'
 
-    const request = new XMLHttpRequest()
+            const completeBtn = document.querySelector('.complete')
+            completeBtn.style.display = 'block'
+        })
+        .catch(e => {
+            const uploadingBtn = document.querySelector('.uploading')
+            uploadingBtn.style.display = 'none'
 
-    request.open('POST', 'https://typing-ranking-server.herokuapp.com/post_score')
-    request.setRequestHeader('Content-Type', 'applicaton/json')
+            const completeBtn = document.querySelector('.error')
+            completeBtn.style.display = 'block'
+        })
 
-    request.onload = () => {
-        const uploadingBtn = document.querySelector('.uploading')
-        uploadingBtn.style.display = 'none'
-
-        const completeBtn = document.querySelector('.complete')
-        completeBtn.style.display = 'block'
-    }
-
-    request.onerror = () => {
-        const uploadingBtn = document.querySelector('.uploading')
-        uploadingBtn.style.display = 'none'
-
-        const completeBtn = document.querySelector('.error')
-        completeBtn.style.display = 'block'
-    }
-
-    request.send(json)
 }
+
+async function postData(url = '', data = {}) {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+      },
+      body: JSON.stringify(data)
+    })
+    return response.json()
+  }
