@@ -1,4 +1,4 @@
 
 (function() {
-    location.href = '/HiraganaParse/js/game/index'
+    location.href = '/HiraganaParse/src/game/index'
 })()
