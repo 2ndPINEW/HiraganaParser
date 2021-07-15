@@ -358,10 +358,12 @@ class Parser {
                 romanList[index - 1].done >= 2 &&
                 romanList[index - 1].done == Math.max.apply(null, romanList[index - 1].allow) && 
                 romanList[index - 1].char != 'n' &&
-                roman.done < 1){
+                roman.done < 1) {
                 if (roman.char == newInput && roman.done < Math.max.apply(null, roman.allow)) {
                     romanList[index].done += 1
                     return new inputChkReturnObj(romanList, true)
+                } else {
+                    return new inputChkReturnObj(romanList)
                 }
             }
         }
