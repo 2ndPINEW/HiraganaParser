@@ -40,7 +40,7 @@ function fetchRankings (name) {
 
     const request = new XMLHttpRequest()
 
-    request.open('GET', 'https://typing-ranking-server.herokuapp.com/ranking')
+    request.open('GET', 'https://typing-server-6gsgaxcc3q-uc.a.run.app/ranking')
     request.setRequestHeader('accept', 'application/json')
     request.onload = (res) => {
         // fetch中に別のランキングが選択されたら反映しない

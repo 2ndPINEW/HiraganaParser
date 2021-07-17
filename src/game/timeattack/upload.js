@@ -46,7 +46,7 @@ function upload () {
     data.handle_name = nickName
     data.time = time
 
-    postData('https://typing-ranking-server.herokuapp.com/post_score', data)
+    postData('https://typing-server-6gsgaxcc3q-uc.a.run.app/post_score', data)
         .then(data => {
             const uploadingBtn = document.querySelector('.uploading')
             uploadingBtn.style.display = 'none'
