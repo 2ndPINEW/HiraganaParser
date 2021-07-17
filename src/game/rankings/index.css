@@ -12,6 +12,7 @@ body {
     border-radius: 16px;
     border: solid 8px var(--color-primary);
     padding: 8px;
+    width: 260px;
 }
 
 .selector_title {
@@ -43,7 +44,7 @@ body {
 }
 
 .ranking_title {
-    font-size: 60px;
+    font-size: 50px;
     font-weight: bold;
     color: var(--color-primary);
     margin: 16px 32px;
@@ -56,20 +57,25 @@ body {
 }
 
 .ranking_item_rank {
-    width: 160px;
+    width: 130px;
     text-align: end;
-    font-size: 50px;
+    font-size: 40px;
     font-weight: bold;
     color: var(--color-primary);
     margin: 8px 0 8px 64px;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .ranking_item_name {
-    font-size: 50px;
+    font-size: 40px;
     font-weight: bold;
     color: var(--color-primary);
-    margin: 8px 0 8px 32px;
+    margin: 8px 8px 8px 32px;
     flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .ranking_item_time {
@@ -77,6 +83,7 @@ body {
     font-weight: bold;
     color: var(--color-primary);
     margin: 8px 64px 8px 32px;
+    white-space: nowrap;
 }
 
 
@@ -88,6 +95,6 @@ body {
 
 .right_column {
     min-width: 900px;
-    max-width: 1200px;
+    max-width: 1400px;
     padding: 16px;
 }
