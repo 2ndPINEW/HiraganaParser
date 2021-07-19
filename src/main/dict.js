@@ -7,11 +7,11 @@ jsonData = {
         },
         {
             "key": "い",
-            "origin": ["i"]
+            "origin": ["i", "yi"]
         },
         {
             "key": "う",
-            "origin": ["u"]
+            "origin": ["u", "wu", "whu"]
         },
         {
             "key": "え",
@@ -23,7 +23,7 @@ jsonData = {
         },
         {
             "key": "か",
-            "origin": ["ka"]
+            "origin": ["ka", "ca"]
         },
         {
             "key": "き",
@@ -31,7 +31,7 @@ jsonData = {
         },
         {
             "key": "く",
-            "origin": ["ku"]
+            "origin": ["ku", "cu", "qu"]
         },
         {
             "key": "け",
@@ -39,7 +39,7 @@ jsonData = {
         },
         {
             "key": "こ",
-            "origin": ["ko"]
+            "origin": ["ko", "co"]
         },
         {
             "key": "さ",
@@ -47,7 +47,7 @@ jsonData = {
         },
         {
             "key": "し",
-            "origin": ["si", "shi"]
+            "origin": ["si", "ci", "shi"]
         },
         {
             "key": "す",
@@ -55,7 +55,7 @@ jsonData = {
         },
         {
             "key": "せ",
-            "origin": ["se"]
+            "origin": ["se", "ce"]
         },
         {
             "key": "そ",
@@ -175,7 +175,7 @@ jsonData = {
         },
         {
             "key": "わ",
-            "origin": ["wa"]
+            "origin": ["wa", "xwa"]
         },
         {
             "key": "を",
@@ -183,7 +183,7 @@ jsonData = {
         },
         {
             "key": "ん",
-            "origin": ["nn", "n"]
+            "origin": ["nn", "n", 'xn']
         },
         {
             "key": "が",
@@ -348,6 +348,30 @@ jsonData = {
     ],
     "two": [
         {
+            "key": "うぁ",
+            "origin": ["wha"]
+        },
+        {
+            "key": "うぃ",
+            "origin": ["whi", "wi"]
+        },
+        {
+            "key": "うぇ",
+            "origin": ["whe", "we"]
+        },
+        {
+            "key": "うぉ",
+            "origin": ["who"]
+        },
+        {
+            "key": "うぉ",
+            "origin": ["who"]
+        },
+        {
+            "key": "いぇ",
+            "origin": ["ye"]
+        },
+        {
             "key": "きゃ",
             "origin": ["kya"]
         },
@@ -366,6 +390,26 @@ jsonData = {
         {
             "key": "きょ",
             "origin": ["kyo"]
+        },
+        {
+            "key": "くゎ",
+            "origin": ["qwa", "qa", "kwa"]
+        },
+        {
+            "key": "くぃ",
+            "origin": ["qwi", "qi", "qyi"]
+        },
+        {
+            "key": "くぅ",
+            "origin": ["qwu"]
+        },
+        {
+            "key": "くぇ",
+            "origin": ["qwe", "qwe", "qe"]
+        },
+        {
+            "key": "くぉ",
+            "origin": ["qwo", "qo"]
         },
         {
             "key": "しゃ",
@@ -388,24 +432,64 @@ jsonData = {
             "origin": ["syo", "sho"]
         },
         {
+            "key": "すぁ",
+            "origin": ["swa"]
+        },
+        {
+            "key": "すぇ",
+            "origin": ["swi"]
+        },
+        {
+            "key": "すぅ",
+            "origin": ["swu"]
+        },
+        {
+            "key": "すぇ",
+            "origin": ["swe"]
+        },
+        {
+            "key": "すぉ",
+            "origin": ["swo"]
+        },
+        {
             "key": "ちゃ",
-            "origin": ["tya"]
+            "origin": ["tya", "cya", "cha"]
         },
         {
             "key": "ちぃ",
-            "origin": ["tyi"]
+            "origin": ["tyi", "cyi"]
         },
         {
             "key": "ちゅ",
-            "origin": ["tyu"]
+            "origin": ["tyu", "cyu", 'chu']
         },
         {
             "key": "ちぇ",
-            "origin": ["tye"]
+            "origin": ["tye", "cye", "che"]
         },
         {
             "key": "ちょ",
-            "origin": ["tyo"]
+            "origin": ["tyo", "cyo", "cho"]
+        },
+        {
+            "key": "つぁ",
+            "origin": ["tsa"]
+        },
+        {
+            "key": "つぃ",
+            "origin": ["tsi"]
+        },
+        {
+            "key": "つぇ",
+            "origin": ["tse"]
+        },
+        {
+            "key": "つぉ",
+            "origin": ["tso"]
+        },
+        {
+            "key": "てぁ",
+            "origin": ["tha"]
         },
         {
             "key": "てぃ",
@@ -422,6 +506,26 @@ jsonData = {
         {
             "key": "てょ",
             "origin": ["tho"]
+        },
+        {
+            "key": "とぁ",
+            "origin": ["twa"]
+        },
+        {
+            "key": "とぃ",
+            "origin": ["twi"]
+        },
+        {
+            "key": "とぅ",
+            "origin": ["twu"]
+        },
+        {
+            "key": "とぇ",
+            "origin": ["twe"]
+        },
+        {
+            "key": "とぉ",
+            "origin": ["two"]
         },
         {
             "key": "にゃ",
@@ -505,23 +609,39 @@ jsonData = {
         },
         {
             "key": "じゃ",
-            "origin": ["ja", "zya"]
+            "origin": ["ja", "zya", "jya"]
         },
         {
             "key": "ふぁ",
-            "origin": ["fa"]
+            "origin": ["fa", "fwa"]
         },
         {
             "key": "ふぃ",
-            "origin": ["fi"]
+            "origin": ["fi", "fwi"]
+        },
+        {
+            "key": "ふぅ",
+            "origin": ["fwu"]
         },
         {
             "key": "ふぇ",
-            "origin": ["fe"]
+            "origin": ["fe", "fwe"]
         },
         {
             "key": "ふぉ",
-            "origin": ["fo"]
+            "origin": ["fo", "fwo"]
+        },
+        {
+            "key": "ふゃ",
+            "origin": ["fo", "fya"]
+        },
+        {
+            "key": "ふゅ",
+            "origin": ["fo", "fyu"]
+        },
+        {
+            "key": "ふょ",
+            "origin": ["fo", "fyo"]
         },
         {
             "key": "ぎゃ",
@@ -640,6 +760,26 @@ jsonData = {
             "origin": ["vo"]
         },
         {
+            "key": "ゔゃ",
+            "origin": ["vya"]
+        },
+        {
+            "key": "ゔぃ",
+            "origin": ["vyi"]
+        },
+        {
+            "key": "ゔゅ",
+            "origin": ["vyu"]
+        },
+        {
+            "key": "ゔぇ",
+            "origin": ["vye"]
+        },
+        {
+            "key": "ゔょ",
+            "origin": ["vyo"]
+        },
+        {
             "key": "でゃ",
             "origin": ["dha"]
         },
@@ -658,6 +798,26 @@ jsonData = {
         {
             "key": "でょ",
             "origin": ["dho"]
-        }
+        },
+        {
+            "key": "どぁ",
+            "origin": ["dwa"]
+        },
+        {
+            "key": "どぃ",
+            "origin": ["dwi"]
+        },
+        {
+            "key": "どぅ",
+            "origin": ["dwu"]
+        },
+        {
+            "key": "どぇ",
+            "origin": ["dwe"]
+        },
+        {
+            "key": "どぉ",
+            "origin": ["dwo"]
+        },
     ]
 }
