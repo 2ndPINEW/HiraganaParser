@@ -1,5 +1,10 @@
+/**
+ * ローマ字変換用の辞書データだよー
+ * new KeyMap()して関数叩いたらjsonData直接いじってローカルデータに保存する
+ */
+jsonData = {};
 
-jsonData = {
+masterData = {
     "one": [
         {
             "key": "あ",
@@ -820,4 +825,143 @@ jsonData = {
             "origin": ["dwo"]
         },
     ]
+};
+
+(function() {
+    /**
+     * ローカルストレージにキーマップが保存されていたらそこから復元
+     * 保存されていないならマスターのデータを突っ込む
+     */
+    let tmp = localStorage.getItem('keymap')
+    
+    if (tmp) {
+        try {
+            jsonData = JSON.parse(tmp)
+        } catch (error) {
+            window.console.error('load default keymap')
+            window.console.error(error)
+            jsonData = { ...masterData }
+        }
+    } else {
+        jsonData = { ...masterData }
+    }
+})()
+
+/**
+ * jsonData直接いじるわw
+ * ごめん
+ */
+class KeyMap {
+    /**
+     * キーマップを追加する、同じoriginがあった場合は削除する
+     * @param {*} key 
+     * @param {*} origin 
+     */
+    addKeyMap (targetKey, targetOrigin) {
+        this.deleteAllKeyMap(targetOrigin)
+
+        let tmpJsonData = {
+            "one": [],
+            "two": []
+        }
+
+        jsonData.one.forEach(dict => {
+            let tmpDict = {
+                key: dict.key,
+                origin: dict.origin
+            }
+
+            if (dict.key == targetKey) {
+                tmpDict.origin.push(targetOrigin)
+                tmpJsonData.one.push(tmpDict)
+            } else {
+                tmpJsonData.one.push(dict)
+            }
+        });
+
+        jsonData.two.forEach(dict => {
+            let tmpDict = {
+                key: dict.key,
+                origin: dict.origin
+            }
+
+            if (dict.key == targetKey) {
+                tmpDict.origin.push(targetOrigin)
+                tmpJsonData.two.push(tmpDict)
+            } else {
+                tmpJsonData.two.push(dict)
+            }
+        });
+
+        this.saveKeyMap(tmpJsonData)
+    }
+
+    /**
+     * keyとoriginが一致したものをキーマップから削除する
+     * @param {*} targetKey 
+     * @param {*} targetOrigin 
+     */
+    deleteKeyMap (targetKey, targetOrigin) {
+        let tmpJsonData = {
+            "one": [],
+            "two": []
+        }
+
+        jsonData.one.forEach(dict => {
+            if (dict.key == targetKey) {
+                tmpJsonData.one.push(this.getRemoveOriginObject(dict, targetOrigin))
+            } else {
+                tmpJsonData.one.push(dict)
+            }
+        });
+
+        jsonData.two.forEach(dict => {
+            if (dict.key == targetKey) {
+                tmpJsonData.two.push(this.getRemoveOriginObject(dict, targetOrigin))
+            } else {
+                tmpJsonData.two.push(dict)
+            }
+        });
+
+        this.saveKeyMap(tmpJsonData)
+    }
+
+    /**
+     * Originが一致するキーマップを全部消す
+     * @param {*} targetOrigin 
+     */
+    deleteAllKeyMap (targetOrigin) {
+        let tmpJsonData = {
+            "one": [],
+            "two": []
+        }
+
+        jsonData.one.forEach(dict => {
+            tmpJsonData.one.push(this.getRemoveOriginObject(dict, targetOrigin))
+        });
+
+        jsonData.two.forEach(dict => {
+            tmpJsonData.two.push(this.getRemoveOriginObject(dict, targetOrigin))
+        });
+
+        this.saveKeyMap(tmpJsonData)
+    }
+
+    getRemoveOriginObject (dict, targetOrigin) {
+        let tmpDict = {
+            key: dict.key,
+            origin: []
+        }
+        dict.origin.forEach(origin => {
+            if (origin !== targetOrigin) {
+                tmpDict.origin.push(origin)
+            }
+        })
+        return tmpDict
+    }
+
+    saveKeyMap = (data) => {
+        jsonData = { ...data }
+        localStorage.setItem('keymap', JSON.stringify(jsonData))
+    }
 }
