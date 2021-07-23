@@ -379,35 +379,63 @@ class Parser {
         let notParsedText = answer.replace(parsedText, '')
         let notParsedTarget = ''
 
-        for (let romanIndex = 0; romanIndex < parsedRomanList.length; romanIndex++) {
-            let roman = parsedRomanList[romanIndex]
-            if (!roman.parsed && Math.max.apply(null, roman.allow) >= 2 && roman.done == 0 && (newInput == 'x' || newInput == 'l')) {
-                parsedRomanList = parsedRomanList.filter(roman => roman.done > 0 && roman.parsed)
-                for (let oneIndex = 0; oneIndex < jsonData.one.length; oneIndex++) {
-                    let tmp = jsonData.one[oneIndex]
-                    for (let originIndex = 0; originIndex < tmp.origin.length; originIndex++) {
-                        let origin = tmp.origin[originIndex]
-                        if (notParsedText[0] == tmp.key && origin.startsWith(newInput)) {
-                            [].forEach.call(origin, function(char_origin) {
-                                if (newInput == char_origin) {
-                                    parsedRomanList.push(new Roman(char_origin, [1], 1))
-                                } else {
-                                    parsedRomanList.push(new Roman(char_origin, [1], 0))
-                                }
-                            })
-                            let addText = tmp.key
-                            notParsedText = answer.replace(parsedText + addText, '')
-                            let additionalList = tmpInputCheckReturnObj.kanaToRoman(notParsedText)
-                            parsedRomanList = parsedRomanList.concat(additionalList)
-                            return new inputChkReturnObj(parsedRomanList, true)
+        let notParsedRomanList = parsedRomanList.filter(item => !item.parsed)
+        parsedRomanList = parsedRomanList.filter(item => item.done > 0 && item.parsed)
+
+        // っがいっぱい並ぶの想定してないからそのうち直したいな〜
+        // 次の文字がっなら次の音を2文字以上重ねたものは入力許可する
+        if (notParsedText.startsWith('っ')) {
+            // 後ろにに2文字以上ある場合
+            if (notParsedText.length > 2) {
+                const targetKey = notParsedText[1] + notParsedText[2]
+                for (let iDict = 0; iDict < jsonData.two.length; iDict++) {
+                    let dict = jsonData.two[iDict]
+                    // キーとoriginの最初の文字が一致したらっの数だけarrowを追加する
+                    if (dict.key == targetKey) {
+                        for (let oDict = 0; oDict < dict.origin.length; oDict++) {
+                            let origin = dict.origin[oDict]
+                            if (origin.startsWith(newInput)) {
+                                let i = 0;
+                                [].forEach.call(origin, function(char) {
+                                    if (i == 0) parsedRomanList.push(new Roman(char, [2], 1))
+                                    else parsedRomanList.push(new Roman(char, [1], 0))
+                                    i++
+                                })
+
+                                let additionalList = tmpInputCheckReturnObj.kanaToRoman(notParsedText.replace('っ' + targetKey, ''))
+                                parsedRomanList = parsedRomanList.concat(additionalList)
+                                return new inputChkReturnObj(parsedRomanList, true)
+                            }
+                        }
+                    }
+                }
+            }
+            // 後ろが1文字の場合
+            else if (notParsedText.length > 1) {
+                const targetKey = notParsedText[1]
+                for (let iDict = 0; iDict < jsonData.one.length; iDict++) {
+                    let dict = jsonData.one[iDict]
+                    // キーとoriginの最初の文字が一致したらっの数だけarrowを追加する
+                    if (dict.key == targetKey) {
+                        for (let oDict = 0; oDict < dict.origin.length; oDict++) {
+                            let origin = dict.origin[oDict]
+                            if (origin.startsWith(newInput)) {
+                                let i = 0;
+                                [].forEach.call(origin, function(char) {
+                                    if (i == 0) parsedRomanList.push(new Roman(char, [2], 1))
+                                    else parsedRomanList.push(new Roman(char, [1], 0))
+                                    i++
+                                })
+
+                                let additionalList = tmpInputCheckReturnObj.kanaToRoman(notParsedText.replace('っ' + targetKey, ''))
+                                parsedRomanList = parsedRomanList.concat(additionalList)
+                                return new inputChkReturnObj(parsedRomanList, true)
+                            }
                         }
                     }
                 }
             }
         }
-
-        let notParsedRomanList = parsedRomanList.filter(item => !item.parsed)
-        parsedRomanList = parsedRomanList.filter(item => item.done > 0 && item.parsed)
 
         notParsedRomanList.forEach((notParsed) => {
             if (notParsed.done > 0) {
