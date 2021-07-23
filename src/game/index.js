@@ -15,6 +15,10 @@ function addKeyEventListener () {
                 event.preventDefault()
                 location.href = './timeattack/'
                 break
+            case 's':
+                event.preventDefault()
+                location.href = './settings/keymap'
+                break
         }
     });
 }

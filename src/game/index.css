@@ -47,3 +47,15 @@
 a {
     text-decoration: none;
 }
+
+.setting {
+    font-size: 20px;
+    color: var(--color-primary);
+    font-weight: bold;
+    border-radius: 16px;
+    border: solid 2px var(--color-primary);
+    padding: 16px;
+    position: fixed;
+    bottom: 64px;
+    right: 64px;
+}
