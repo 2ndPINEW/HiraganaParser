@@ -1,5 +1,10 @@
+/**
+ * ローマ字変換用の辞書データだよー
+ * new KeyMap()して関数叩いたらjsonData直接いじってローカルデータに保存する
+ */
+jsonData = {};
 
-jsonData = {
+masterData = {
     "one": [
         {
             "key": "あ",
@@ -175,7 +180,7 @@ jsonData = {
         },
         {
             "key": "わ",
-            "origin": ["wa", "xwa"]
+            "origin": ["wa"]
         },
         {
             "key": "を",
@@ -183,7 +188,7 @@ jsonData = {
         },
         {
             "key": "ん",
-            "origin": ["nn", "n", 'xn']
+            "origin": ["nn", "n", "n'", 'xn']
         },
         {
             "key": "が",
@@ -318,8 +323,20 @@ jsonData = {
             "origin": ["lyo", "xyo"]
         },
         {
+            "key": "ヵ",
+            "origin": ["lka", "xka"]
+        },
+        {
+            "key": "ヶ",
+            "origin": ["lke", "xke"]
+        },
+        {
+            "key": "ゎ",
+            "origin": ["lwa", "xwa"]
+        },
+        {
             "key": "っ",
-            "origin": ["ltu", "xtu"]
+            "origin": ["ltu", "xtu", "ltsu"]
         },
         {
             "key": "ゔ",
@@ -392,7 +409,19 @@ jsonData = {
             "origin": ["kyo"]
         },
         {
-            "key": "くゎ",
+            "key": "くゃ",
+            "origin": ["qya"]
+        },
+        {
+            "key": "くゅ",
+            "origin": ["qyu"]
+        },
+        {
+            "key": "くょ",
+            "origin": ["qyo"]
+        },
+        {
+            "key": "くぁ",
             "origin": ["qwa", "qa", "kwa"]
         },
         {
@@ -405,11 +434,31 @@ jsonData = {
         },
         {
             "key": "くぇ",
-            "origin": ["qwe", "qwe", "qe"]
+            "origin": ["qwe", "qe", "qye"]
         },
         {
             "key": "くぉ",
             "origin": ["qwo", "qo"]
+        },
+        {
+            "key": "ぐぁ",
+            "origin": ["gwa"]
+        },
+        {
+            "key": "ぐぃ",
+            "origin": ["gwi"]
+        },
+        {
+            "key": "ぐぅ",
+            "origin": ["gwu"]
+        },
+        {
+            "key": "ぐぇ",
+            "origin": ["gwe"]
+        },
+        {
+            "key": "くぉ",
+            "origin": ["gwo"]
         },
         {
             "key": "しゃ",
@@ -436,7 +485,7 @@ jsonData = {
             "origin": ["swa"]
         },
         {
-            "key": "すぇ",
+            "key": "すぃ",
             "origin": ["swi"]
         },
         {
@@ -608,16 +657,12 @@ jsonData = {
             "origin": ["ryo"]
         },
         {
-            "key": "じゃ",
-            "origin": ["ja", "zya", "jya"]
-        },
-        {
             "key": "ふぁ",
             "origin": ["fa", "fwa"]
         },
         {
             "key": "ふぃ",
-            "origin": ["fi", "fwi"]
+            "origin": ["fi", "fwi", "fyi"]
         },
         {
             "key": "ふぅ",
@@ -625,7 +670,7 @@ jsonData = {
         },
         {
             "key": "ふぇ",
-            "origin": ["fe", "fwe"]
+            "origin": ["fe", "fwe", "fye"]
         },
         {
             "key": "ふぉ",
@@ -633,15 +678,15 @@ jsonData = {
         },
         {
             "key": "ふゃ",
-            "origin": ["fo", "fya"]
+            "origin": ["fya"]
         },
         {
             "key": "ふゅ",
-            "origin": ["fo", "fyu"]
+            "origin": ["fyu"]
         },
         {
             "key": "ふょ",
-            "origin": ["fo", "fyo"]
+            "origin": ["fyo"]
         },
         {
             "key": "ぎゃ",
@@ -749,11 +794,11 @@ jsonData = {
         },
         {
             "key": "ゔぃ",
-            "origin": ["vi"]
+            "origin": ["vi", "vyi"]
         },
         {
             "key": "ゔぇ",
-            "origin": ["ve"]
+            "origin": ["ve", "vye"]
         },
         {
             "key": "ゔぉ",
@@ -764,16 +809,8 @@ jsonData = {
             "origin": ["vya"]
         },
         {
-            "key": "ゔぃ",
-            "origin": ["vyi"]
-        },
-        {
             "key": "ゔゅ",
             "origin": ["vyu"]
-        },
-        {
-            "key": "ゔぇ",
-            "origin": ["vye"]
         },
         {
             "key": "ゔょ",
@@ -820,4 +857,148 @@ jsonData = {
             "origin": ["dwo"]
         },
     ]
+};
+
+(function() {
+    /**
+     * ローカルストレージにキーマップが保存されていたらそこから復元
+     * 保存されていないならマスターのデータを突っ込む
+     */
+    let tmp = localStorage.getItem('keymap')
+    
+    if (tmp) {
+        try {
+            jsonData = JSON.parse(tmp)
+        } catch (error) {
+            window.console.error('load default keymap')
+            window.console.error(error)
+            jsonData = { ...masterData }
+        }
+    } else {
+        jsonData = { ...masterData }
+    }
+})()
+
+/**
+ * jsonData直接いじるわw
+ * ごめん
+ */
+class KeyMap {
+    /**
+     * キーマップを追加する、同じoriginがあった場合は削除する
+     * @param {*} key 
+     * @param {*} origin 
+     */
+    addKeyMap (targetKey, targetOrigin) {
+        this.deleteAllKeyMap(targetOrigin)
+
+        let tmpJsonData = {
+            "one": [],
+            "two": []
+        }
+
+        jsonData.one.forEach(dict => {
+            let tmpDict = {
+                key: dict.key,
+                origin: dict.origin
+            }
+
+            if (dict.key == targetKey) {
+                tmpDict.origin.push(targetOrigin)
+                tmpJsonData.one.push(tmpDict)
+            } else {
+                tmpJsonData.one.push(dict)
+            }
+        });
+
+        jsonData.two.forEach(dict => {
+            let tmpDict = {
+                key: dict.key,
+                origin: dict.origin
+            }
+
+            if (dict.key == targetKey) {
+                tmpDict.origin.push(targetOrigin)
+                tmpJsonData.two.push(tmpDict)
+            } else {
+                tmpJsonData.two.push(dict)
+            }
+        });
+
+        this.saveKeyMap(tmpJsonData)
+    }
+
+    /**
+     * keyとoriginが一致したものをキーマップから削除する
+     * @param {*} targetKey 
+     * @param {*} targetOrigin 
+     */
+    deleteKeyMap (targetKey, targetOrigin) {
+        let tmpJsonData = {
+            "one": [],
+            "two": []
+        }
+
+        jsonData.one.forEach(dict => {
+            if (dict.key == targetKey) {
+                tmpJsonData.one.push(this.getRemoveOriginObject(dict, targetOrigin))
+            } else {
+                tmpJsonData.one.push(dict)
+            }
+        });
+
+        jsonData.two.forEach(dict => {
+            if (dict.key == targetKey) {
+                tmpJsonData.two.push(this.getRemoveOriginObject(dict, targetOrigin))
+            } else {
+                tmpJsonData.two.push(dict)
+            }
+        });
+
+        this.saveKeyMap(tmpJsonData)
+    }
+
+    /**
+     * Originが一致するキーマップを全部消す
+     * @param {*} targetOrigin 
+     */
+    deleteAllKeyMap (targetOrigin) {
+        let tmpJsonData = {
+            "one": [],
+            "two": []
+        }
+
+        jsonData.one.forEach(dict => {
+            tmpJsonData.one.push(this.getRemoveOriginObject(dict, targetOrigin))
+        });
+
+        jsonData.two.forEach(dict => {
+            tmpJsonData.two.push(this.getRemoveOriginObject(dict, targetOrigin))
+        });
+
+        this.saveKeyMap(tmpJsonData)
+    }
+
+    getRemoveOriginObject (dict, targetOrigin) {
+        let tmpDict = {
+            key: dict.key,
+            origin: []
+        }
+        dict.origin.forEach(origin => {
+            if (origin !== targetOrigin) {
+                tmpDict.origin.push(origin)
+            }
+        })
+        return tmpDict
+    }
+
+    reset () {
+        jsonData = masterData
+        localStorage.removeItem('keymap')
+    }
+
+    saveKeyMap = (data) => {
+        jsonData = { ...data }
+        localStorage.setItem('keymap', JSON.stringify(jsonData))
+    }
 }

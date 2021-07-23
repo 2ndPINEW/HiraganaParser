@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="../../common.css" rel="stylesheet" type="text/css">
+    <link href="./index.css" rel="stylesheet" type="text/css">
+    <title>ねこ打 キーマップ</title>
+</head>
+<body>
+    <div class="content_area">
+        <div class="content_title">キーマップ バグってたらごめん</div>
+        <div class="content_title_underbar"></div>
+        <div class="keymap_config_wrapper">
+            <div class="left_column">
+                <div class="keymap_controller">
+                    <input class="keymap_change_input keymap_target" type="text" placeholder="文字を選択"></input>
+                    <input class="keymap_change_input keymap_origin" type="text" placeholder="キーを入力"></input>
+                    <div class="keymap_change_button" onclick="keyAdd()">キー追加</div>
+                    <div class="keymap_change_button" onclick="keyDelete()">キー削除</div>
+                    <div class="keymap_change_button" onclick="reset()">リセット</div>
+                    <div class="keymap_change_button" onclick="returnToHome()">ホームに戻る</div>
+                </div>
+            </div>
+            <div class="keymap_table_area">
+                
+            </div>
+        </div>
+    </div>
+    <script src='../../../main/dict.js'></script>
+    <script src='./main.js'></script>
+</body>
+</html>
