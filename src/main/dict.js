@@ -180,7 +180,7 @@ masterData = {
         },
         {
             "key": "わ",
-            "origin": ["wa", "xwa"]
+            "origin": ["wa"]
         },
         {
             "key": "を",
@@ -188,7 +188,7 @@ masterData = {
         },
         {
             "key": "ん",
-            "origin": ["nn", "n", 'xn']
+            "origin": ["nn", "n", "n'", 'xn']
         },
         {
             "key": "が",
@@ -323,8 +323,20 @@ masterData = {
             "origin": ["lyo", "xyo"]
         },
         {
+            "key": "ヵ",
+            "origin": ["lka", "xka"]
+        },
+        {
+            "key": "ヶ",
+            "origin": ["lke", "xke"]
+        },
+        {
+            "key": "ゎ",
+            "origin": ["lwa", "xwa"]
+        },
+        {
             "key": "っ",
-            "origin": ["ltu", "xtu"]
+            "origin": ["ltu", "xtu", "ltsu"]
         },
         {
             "key": "ゔ",
@@ -397,7 +409,19 @@ masterData = {
             "origin": ["kyo"]
         },
         {
-            "key": "くゎ",
+            "key": "くゃ",
+            "origin": ["qya"]
+        },
+        {
+            "key": "くゅ",
+            "origin": ["qyu"]
+        },
+        {
+            "key": "くょ",
+            "origin": ["qyo"]
+        },
+        {
+            "key": "くぁ",
             "origin": ["qwa", "qa", "kwa"]
         },
         {
@@ -410,11 +434,31 @@ masterData = {
         },
         {
             "key": "くぇ",
-            "origin": ["qwe", "qwe", "qe"]
+            "origin": ["qwe", "qe", "qye"]
         },
         {
             "key": "くぉ",
             "origin": ["qwo", "qo"]
+        },
+        {
+            "key": "ぐぁ",
+            "origin": ["gwa"]
+        },
+        {
+            "key": "ぐぃ",
+            "origin": ["gwi"]
+        },
+        {
+            "key": "ぐぅ",
+            "origin": ["gwu"]
+        },
+        {
+            "key": "ぐぇ",
+            "origin": ["gwe"]
+        },
+        {
+            "key": "くぉ",
+            "origin": ["gwo"]
         },
         {
             "key": "しゃ",
@@ -441,7 +485,7 @@ masterData = {
             "origin": ["swa"]
         },
         {
-            "key": "すぇ",
+            "key": "すぃ",
             "origin": ["swi"]
         },
         {
@@ -613,16 +657,12 @@ masterData = {
             "origin": ["ryo"]
         },
         {
-            "key": "じゃ",
-            "origin": ["ja", "zya", "jya"]
-        },
-        {
             "key": "ふぁ",
             "origin": ["fa", "fwa"]
         },
         {
             "key": "ふぃ",
-            "origin": ["fi", "fwi"]
+            "origin": ["fi", "fwi", "fyi"]
         },
         {
             "key": "ふぅ",
@@ -630,7 +670,7 @@ masterData = {
         },
         {
             "key": "ふぇ",
-            "origin": ["fe", "fwe"]
+            "origin": ["fe", "fwe", "fye"]
         },
         {
             "key": "ふぉ",
@@ -638,15 +678,15 @@ masterData = {
         },
         {
             "key": "ふゃ",
-            "origin": ["fo", "fya"]
+            "origin": ["fya"]
         },
         {
             "key": "ふゅ",
-            "origin": ["fo", "fyu"]
+            "origin": ["fyu"]
         },
         {
             "key": "ふょ",
-            "origin": ["fo", "fyo"]
+            "origin": ["fyo"]
         },
         {
             "key": "ぎゃ",
@@ -754,11 +794,11 @@ masterData = {
         },
         {
             "key": "ゔぃ",
-            "origin": ["vi"]
+            "origin": ["vi", "vyi"]
         },
         {
             "key": "ゔぇ",
-            "origin": ["ve"]
+            "origin": ["ve", "vye"]
         },
         {
             "key": "ゔぉ",
@@ -769,16 +809,8 @@ masterData = {
             "origin": ["vya"]
         },
         {
-            "key": "ゔぃ",
-            "origin": ["vyi"]
-        },
-        {
             "key": "ゔゅ",
             "origin": ["vyu"]
-        },
-        {
-            "key": "ゔぇ",
-            "origin": ["vye"]
         },
         {
             "key": "ゔょ",
@@ -958,6 +990,11 @@ class KeyMap {
             }
         })
         return tmpDict
+    }
+
+    reset () {
+        jsonData = masterData
+        localStorage.removeItem('keymap')
     }
 
     saveKeyMap = (data) => {
