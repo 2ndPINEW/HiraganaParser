@@ -410,8 +410,8 @@ class Parser {
                     }
                 }
             }
-            // 後ろが1文字の場合
-            else if (notParsedText.length > 1) {
+            // 後ろが1文字以上で探索
+            if (notParsedText.length > 1) {
                 const targetKey = notParsedText[1]
                 for (let iDict = 0; iDict < jsonData.one.length; iDict++) {
                     let dict = jsonData.one[iDict]
