@@ -274,6 +274,22 @@ master_questions = [
     {
         "question": "マンハッタンカフェ",
         "hiragana": "まんはったんかふぇ"
+    },
+    {
+        "question": "おはようございます",
+        "hiragana": "おはようございます"
+    },
+    {
+        "question": "業務開始します",
+        "hiragana": "ぎょうむかいしします"
+    },
+    {
+        "question": "お疲れ様でした",
+        "hiragana": "おつかれさまでした"
+    },
+    {
+        "question": "業務終了します",
+        "hiragana": "ぎょうむしゅうりょうします"
     }
 ]
 
