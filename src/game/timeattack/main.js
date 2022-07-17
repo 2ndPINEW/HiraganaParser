@@ -110,7 +110,7 @@ function addKeyEventListener () {
         }
         
         if (isGaming) {
-            typing.newInput(event.key)
+            typing.newInput(event.key.toLocaleLowerCase())
             if (typing.isAcceptInput) {
                 count ++
             } else {
