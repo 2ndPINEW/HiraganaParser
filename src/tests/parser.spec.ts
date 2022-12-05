@@ -19,6 +19,30 @@ describe('ちっちゃいつが出てくる系', () => {
     {
       hiragana: 'やっほー',
       ans: ['yahho-', 'yaxtuho-', 'yaltuho-', 'yaxtsuho-', 'yaltsuho-']
+    },
+    {
+      hiragana: 'ぽっちゃ',
+      ans: [
+        'pottya',
+        'poccya',
+        'poccha',
+        'poxtutixya',
+        'poxtutilya',
+        'poxtuchixya',
+        'poxtuchilya',
+        'poltutixya',
+        'poltutilya',
+        'poltuchixya',
+        'poltuchilya',
+        'poxtsutixya',
+        'poxtsutilya',
+        'poxtsuchixya',
+        'poxtsuchilya',
+        'poltsutixya',
+        'poltsutilya',
+        'poltsuchixya',
+        'poltsuchilya',
+      ]
     }
   ].forEach(test => {
     it(test.hiragana, () => {
