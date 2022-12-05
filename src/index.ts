@@ -1,2 +1,2 @@
 export { hiraganaToRomans } from './parser'
-export { ParserConfigs } from './config'
+export { KEY_CONFIGS } from './config'

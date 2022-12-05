@@ -7,7 +7,7 @@ export const findConfig = (
   return configs.find((config) => config.key === key);
 };
 
-export const ParserConfigs: KeyConfigs = [
+export const KEY_CONFIGS: KeyConfigs = [
   {
     key: "あ",
     origins: ["a"],
