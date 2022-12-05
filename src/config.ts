@@ -338,7 +338,7 @@ export const KEY_CONFIGS: KeyConfigs = [
   },
   {
     key: "っ",
-    origins: ["ltu", "xtu", "ltsu"],
+    origins: ["ltu", "xtu", "ltsu", "xtsu"],
   },
   {
     key: "ゔ",
