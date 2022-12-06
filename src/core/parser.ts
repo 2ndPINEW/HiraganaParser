@@ -7,6 +7,21 @@ import { KeyConfigs } from "./parser.interface";
  * ひらがなを渡したら全パターンのローマ字を返してくれる
  */
 export const hiraganaToRomans = (hiraganas: string, configs: KeyConfigs = KEY_CONFIGS) => {
+  // Romanのツリー構造を作っていこう
+  const startRoman = new Roman('')
+}
+
+class Roman {
+  char: string
+  childs: Roman[] = []
+
+  constructor (char: string) {
+    this.char = char
+  }
+
+  addChild (roman: Roman): void {
+    this.childs.push(roman)
+  }
 }
 
 const isAlphabet = (char: string) => char !== '' && 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789- ,:(){}.・!&%'.includes(char);

@@ -1,11 +1,11 @@
-import { KeyConfig, KeyConfigs } from "./parser.interface";
+import { KeyConfig, KeyConfigs } from "./parser.interface"
 
 export const findConfig = (
   configs: KeyConfigs,
   key: string
 ): KeyConfig | undefined => {
   return configs.find((config) => config.key === key);
-};
+}
 
 export const KEY_CONFIGS: KeyConfigs = [
   {
@@ -856,4 +856,4 @@ export const KEY_CONFIGS: KeyConfigs = [
     key: "どぉ",
     origins: ["dwo"],
   },
-];
+]

@@ -1,5 +1,5 @@
 // 名前付きでインポートします
-import { hiraganaToRomans } from '../parser';
+import { hiraganaToRomans } from '../';
 
 describe('答えが一つだけ', () => {
   [
