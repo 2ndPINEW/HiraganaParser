@@ -56,7 +56,6 @@ const isArrowOneNInput = (remainingHiraganas: string): boolean => {
     return false
   }
   const nextHiraganas = remainingHiraganas.slice(1)
-  console.log(remainingHiraganas, nextHiraganas)
   if (!nextHiraganas) return false
 
   const matchKeyConfigs = keyConfigs.filter(keyConfig => nextHiraganas.startsWith(keyConfig.key))
