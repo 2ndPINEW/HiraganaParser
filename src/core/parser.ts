@@ -6,8 +6,8 @@ let keyConfigs = KEY_CONFIGS
 /**
  * Romanのツリー構造を返す
  */
-export const hiraganaToRomans = (hiraganas: string, keyConfigs: KeyConfigs = KEY_CONFIGS) => {
-  keyConfigs =  keyConfigs
+export const hiraganaToRomans = (hiraganas: string, configs: KeyConfigs = KEY_CONFIGS) => {
+  keyConfigs = configs
 
   // Romanのツリー構造を作っていこう
   const startRoman = new Roman('')
@@ -62,17 +62,7 @@ const isArrowOneNInput = (remainingHiraganas: string): boolean => {
   )
 }
 
-// Romanのツリー構造が完成したらローマ字に直す
-const onCompleteMakeRoman = (roman: Roman, roma: string, answers: string[]) => {
-  roma = roman.roma + roma
-  if (roman.parent) {
-    onCompleteMakeRoman(roman.parent, roma, answers)
-  } else {
-    answers.push(roma)
-  }
-}
-
-class Roman {
+export class Roman {
   roma: string
   childs: Roman[] = []
   parent: Roman | undefined

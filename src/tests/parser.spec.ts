@@ -1,5 +1,5 @@
 // 名前付きでインポートします
-import { hiraganaToRomans } from '../';
+import { hiraganaToRomas } from '../';
 
 describe('答えが一つだけ', () => {
   [
@@ -9,7 +9,7 @@ describe('答えが一つだけ', () => {
     }
   ].forEach(test => {
     it(test.hiragana, () => {
-      expect(hiraganaToRomans(test.hiragana)).toStrictEqual(test.ans)
+      expect(hiraganaToRomas(test.hiragana)).toStrictEqual(test.ans)
     })
   })
 })
@@ -39,7 +39,7 @@ describe('ちっちゃいつが出てくる系', () => {
     }
   ].forEach(test => {
     it(test.hiragana, () => {
-      expect(hiraganaToRomans(test.hiragana)).toStrictEqual(test.ans)
+      expect(hiraganaToRomas(test.hiragana)).toStrictEqual(test.ans)
     })
   })
 })
@@ -67,7 +67,7 @@ describe('「ん」が出てくる', () => {
     }
   ].forEach(test => {
     it(test.hiragana, () => {
-      expect(hiraganaToRomans(test.hiragana)).toStrictEqual(test.ans)
+      expect(hiraganaToRomas(test.hiragana)).toStrictEqual(test.ans)
     })
   })
 })
