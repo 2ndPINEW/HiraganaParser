@@ -2,7 +2,7 @@ import { makeAnswers } from "./converter"
 import { hiraganaToRomans, Roman } from "./parser"
 import { KeyConfigs } from "./parser.interface"
 
-interface GameParserOption {
+export interface GameParserOption {
   hiraganas: string
   configs?: KeyConfigs
 }
