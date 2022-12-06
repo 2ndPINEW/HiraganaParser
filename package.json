@@ -7,6 +7,7 @@
   "types": "dist/esm/index.d.ts",
   "scripts": {
     "test": "jest",
+    "dev": "npx ts-node src/dev.ts",
     "prebuild": "rimraf dist",
     "build": "run-p build:*",
     "build:common": "tsc",
