@@ -6,8 +6,8 @@ let keyConfigs = KEY_CONFIGS
 /**
  * Romanのツリー構造を返す
  */
-export const hiraganaToRomans = (hiraganas: string, configs: KeyConfigs = KEY_CONFIGS) => {
-  keyConfigs = configs
+export const hiraganaToRomans = (hiraganas: string, configs?: KeyConfigs) => {
+  keyConfigs = configs ?? KEY_CONFIGS
 
   // Romanのツリー構造を作っていこう
   const startRoman = new Roman('')

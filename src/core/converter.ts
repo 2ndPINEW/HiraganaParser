@@ -14,7 +14,7 @@ export const hiraganaToRomas = (hiraganas: string, configs: KeyConfigs = KEY_CON
 /**
  * Romanのツリー構造を後ろに辿っていって、ローマ字入力できる組み合わせを作る
  */
-const makeAnswers = (roman: Roman, answers?: string[]) => {
+export const makeAnswers = (roman: Roman, answers?: string[]) => {
   if (!answers) {
     answers = []
   }
