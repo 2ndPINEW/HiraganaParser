@@ -7,7 +7,7 @@
     "strict": true,
     "lib": ["ESNext"],
     "types": ["node", "jest"],
-    "outDir": "dist"
+    "outDir": "lib"
   },
   "include": ["src"],
   "exclude": ["src/**/*.spec.ts"]

@@ -2,7 +2,7 @@
   "extends": ".",
   "compilerOptions": {
     "module": "ESNext",
-    "outDir": "dist/esm",
+    "outDir": "lib/esm",
     "declaration": true,
     "declarationMap": true
   },
