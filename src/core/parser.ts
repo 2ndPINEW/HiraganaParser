@@ -4,30 +4,28 @@ import { KeyConfigs } from "./parser.interface";
 let keyConfigs = KEY_CONFIGS
 
 /**
- * ひらがなを渡したら全パターンのローマ字を返してくれる
+ * Romanのツリー構造を返す
  */
 export const hiraganaToRomans = (hiraganas: string, keyConfigs: KeyConfigs = KEY_CONFIGS) => {
   keyConfigs =  keyConfigs
-  const answers: string[] = []
 
   // Romanのツリー構造を作っていこう
   const startRoman = new Roman('')
-  addNextChilds(hiraganas, startRoman, answers)
+  addNextChilds(hiraganas, startRoman)
 
-  return answers
+  return startRoman
 }
 
-const addNextChilds = (remainingHiraganas: string, parentRoman: Roman, answers: string[], duplicateFirstLetter?: boolean) => {
-  // 空文字の場合は最後の文字なので、ローマ字の並びを完成させる
+const addNextChilds = (remainingHiraganas: string, parentRoman: Roman, duplicateFirstLetter?: boolean) => {
+  // 空文字の場合は最後の文字なので何もしない
   if (!remainingHiraganas) {
-    onCompleteMakeRoman(parentRoman, '', answers)
     return
   }
 
   // 「っ」の時はその次の文字を重ねたやつもいける
   if (remainingHiraganas.startsWith('っ')) {
     const nextHiraganas = remainingHiraganas.slice(1)
-    addNextChilds(nextHiraganas, parentRoman, answers, true)
+    addNextChilds(nextHiraganas, parentRoman, true)
   }
 
   // 「ん」の時は次がnから始まらないならn一個でいける
@@ -35,7 +33,7 @@ const addNextChilds = (remainingHiraganas: string, parentRoman: Roman, answers: 
     const nextRoman = new Roman('n')
     parentRoman.addChild(nextRoman)
     const nextHiraganas = remainingHiraganas.slice(1)
-    addNextChilds(nextHiraganas, nextRoman, answers, false)
+    addNextChilds(nextHiraganas, nextRoman, false)
   }
 
   const matchKeyConfigs = keyConfigs.filter(keyConfig => remainingHiraganas.startsWith(keyConfig.key))
@@ -44,7 +42,7 @@ const addNextChilds = (remainingHiraganas: string, parentRoman: Roman, answers: 
       const nextRoman = duplicateFirstLetter ? new Roman(origin[0] + origin) : new Roman(origin)
       parentRoman.addChild(nextRoman)
       const nextHiraganas = remainingHiraganas.slice(matchKeyConfig.key.length)
-      addNextChilds(nextHiraganas, nextRoman, answers)
+      addNextChilds(nextHiraganas, nextRoman)
     })
   })
 }
