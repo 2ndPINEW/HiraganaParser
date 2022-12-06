@@ -190,7 +190,7 @@ export const KEY_CONFIGS: KeyConfigs = [
   },
   {
     key: "ん",
-    origins: ["nn", "n", "n'", "xn"],
+    origins: ["nn", "n'", "xn"],
   },
   {
     key: "が",
