@@ -11,12 +11,12 @@ export const hiraganaToRomans = (hiraganas: string, configs?: KeyConfigs) => {
 
   // Romanのツリー構造を作っていこう
   const startRoman = new Roman('')
-  addNextChilds(hiraganas, startRoman)
+  addNextChild(hiraganas, startRoman)
 
   return startRoman
 }
 
-const addNextChilds = (remainingHiraganas: string, parentRoman: Roman, duplicateFirstLetter?: boolean) => {
+const addNextChild = (remainingHiraganas: string, parentRoman: Roman, duplicateFirstLetter?: boolean) => {
   // 空文字の場合は最後の文字なので何もしない
   if (!remainingHiraganas) {
     return
@@ -25,7 +25,7 @@ const addNextChilds = (remainingHiraganas: string, parentRoman: Roman, duplicate
   // 「っ」の時はその次の文字を重ねたやつもいける
   if (remainingHiraganas.startsWith('っ')) {
     const nextHiraganas = remainingHiraganas.slice(1)
-    addNextChilds(nextHiraganas, parentRoman, true)
+    addNextChild(nextHiraganas, parentRoman, true)
   }
 
   // 「ん」の時は次がnから始まらないならn一個でいける
@@ -33,7 +33,7 @@ const addNextChilds = (remainingHiraganas: string, parentRoman: Roman, duplicate
     const nextRoman = new Roman('n')
     parentRoman.addChild(nextRoman)
     const nextHiraganas = remainingHiraganas.slice(1)
-    addNextChilds(nextHiraganas, nextRoman, false)
+    addNextChild(nextHiraganas, nextRoman, false)
   }
 
   const matchKeyConfigs = keyConfigs.filter(keyConfig => remainingHiraganas.startsWith(keyConfig.key))
@@ -42,7 +42,7 @@ const addNextChilds = (remainingHiraganas: string, parentRoman: Roman, duplicate
       const nextRoman = duplicateFirstLetter ? new Roman(origin[0] + origin) : new Roman(origin)
       parentRoman.addChild(nextRoman)
       const nextHiraganas = remainingHiraganas.slice(matchKeyConfig.key.length)
-      addNextChilds(nextHiraganas, nextRoman)
+      addNextChild(nextHiraganas, nextRoman)
     })
   })
 }
@@ -64,7 +64,7 @@ const isArrowOneNInput = (remainingHiraganas: string): boolean => {
 
 export class Roman {
   roma: string
-  childs: Roman[] = []
+  children: Roman[] = []
   parent: Roman | undefined
 
   constructor (roma: string) {
@@ -72,7 +72,7 @@ export class Roman {
   }
 
   addChild (roman: Roman): void {
-    this.childs.push(roman)
+    this.children.push(roman)
     roman.parent = this
   }
 }
