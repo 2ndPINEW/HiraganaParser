@@ -18,10 +18,10 @@ export const makeAnswers = (roman: Roman, answers?: string[]) => {
   if (!answers) {
     answers = []
   }
-  roman.childs.forEach(child => {
+  roman.children.forEach(child => {
     makeAnswers(child, answers)
   })
-  if (roman.childs.length === 0) {
+  if (roman.children.length === 0) {
     makeRomas(roman, '', answers)
   }
   return answers
