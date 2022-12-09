@@ -1,4 +1,4 @@
-import { makeAnswers } from "./converter"
+import { makeAnswers, romaToHiranaga } from "./converter"
 import { hiraganaToRomans, Roman } from "./parser"
 import { KeyConfigs } from "./parser.interface"
 
@@ -32,6 +32,16 @@ export class GameParser {
     return answer ?? ''
   }
 
+  private _inputedHiragana: string = ''
+
+  get inputedHiragana (): string {
+    return this._inputedHiragana
+  }
+
+  get notInputedHiragana (): string {
+    return this.options.hiraganas.replace(this._inputedHiragana, '')
+  }
+
   constructor (options: GameParserOption) {
     this.options = options
     this.roman = hiraganaToRomans(options.hiraganas, options.configs)
@@ -47,6 +57,10 @@ export class GameParser {
     if (canInput) {
       this._inputedRoma = newInputedString
     }
+
+    // ここでひらがな探す
+    this._inputedHiragana = romaToHiranaga(this.roman, this.inputedRoma)
+
     return canInput
   }
 
