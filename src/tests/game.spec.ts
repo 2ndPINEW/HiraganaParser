@@ -1,9 +1,9 @@
 // 名前付きでインポートします
-import { GameParser } from '..';
+import { HiraganaParser } from '..';
 
-describe('GameParserのテスト', () => {
+describe('HiraganaParserのテスト', () => {
   it ('きんにく - kni', () => {
-    const parser = new GameParser({ hiraganas: 'きんにく' })
+    const parser = new HiraganaParser({ hiraganas: 'きんにく' })
     parser.input('k')
     parser.input('n')
     parser.input('i')
@@ -12,7 +12,7 @@ describe('GameParserのテスト', () => {
   })
 
   it ('きんにく - knin', () => {
-    const parser = new GameParser({ hiraganas: 'きんにく' })
+    const parser = new HiraganaParser({ hiraganas: 'きんにく' })
     parser.input('k')
     parser.input('n')
     parser.input('i')
@@ -22,7 +22,7 @@ describe('GameParserのテスト', () => {
   })
 
   it ('最後まで入力済みの場合はcompleteフラグが立つこと', () => {
-    const parser = new GameParser({ hiraganas: 'きんにく' })
+    const parser = new HiraganaParser({ hiraganas: 'きんにく' })
     parser.input('k')
     parser.input('i')
     parser.input('n')
