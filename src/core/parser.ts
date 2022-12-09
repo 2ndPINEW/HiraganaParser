@@ -10,7 +10,7 @@ export const hiraganaToRomans = (hiraganas: string, configs?: KeyConfigs) => {
   keyConfigs = configs ?? KEY_CONFIGS
 
   // Romanのツリー構造を作っていこう
-  const startRoman = new Roman('')
+  const startRoman = new Roman('', '')
   addNextChild(hiraganas, startRoman)
 
   return startRoman
@@ -30,7 +30,7 @@ const addNextChild = (remainingHiraganas: string, parentRoman: Roman, duplicateF
 
   // 「ん」の時は次がnから始まらないならn一個でいける
   if (isArrowOneNInput(remainingHiraganas)) {
-    const nextRoman = new Roman('n')
+    const nextRoman = new Roman('n', 'ん')
     parentRoman.addChild(nextRoman)
     const nextHiraganas = remainingHiraganas.slice(1)
     addNextChild(nextHiraganas, nextRoman, false)
@@ -39,7 +39,7 @@ const addNextChild = (remainingHiraganas: string, parentRoman: Roman, duplicateF
   const matchKeyConfigs = keyConfigs.filter(keyConfig => remainingHiraganas.startsWith(keyConfig.key))
   matchKeyConfigs.forEach(matchKeyConfig => {
     matchKeyConfig.origins.forEach(origin => {
-      const nextRoman = duplicateFirstLetter ? new Roman(origin[0] + origin) : new Roman(origin)
+      const nextRoman = duplicateFirstLetter ? new Roman(origin[0] + origin, `っ${matchKeyConfig.key}`) : new Roman(origin, matchKeyConfig.key)
       parentRoman.addChild(nextRoman)
       const nextHiraganas = remainingHiraganas.slice(matchKeyConfig.key.length)
       addNextChild(nextHiraganas, nextRoman)
@@ -66,9 +66,11 @@ export class Roman {
   roma: string
   children: Roman[] = []
   parent: Roman | undefined
+  hiragana: string
 
-  constructor (roma: string) {
+  constructor (roma: string, hiragana: string) {
     this.roma = roma
+    this.hiragana = hiragana
   }
 
   addChild (roman: Roman): void {
