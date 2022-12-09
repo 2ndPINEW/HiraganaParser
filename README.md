@@ -10,10 +10,10 @@
 
 #### コード
 ```typescript
-import { GameParser } from 'hiragana-parser'
+import { HiraganaParser } from 'hiragana-parser'
 
 // パースしたいひらがなを引数に渡してゲーム向けパーサーのインスタンスを作る
-const parser = new GameParser({ hiraganas: 'きんにく' })
+const parser = new HiraganaParser({ hiraganas: 'きんにく' })
 // ユーザーの入力した文字をパーサーに渡す
 console.log(parser.input('k'))
 console.log(parser.input('n'))

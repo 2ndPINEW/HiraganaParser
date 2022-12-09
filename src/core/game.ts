@@ -2,7 +2,7 @@ import { makeAnswers, romaToHiranaga } from "./converter"
 import { hiraganaToRomans, Roman } from "./parser"
 import { KeyConfigs } from "./parser.interface"
 
-export interface GameParserOption {
+export interface HiraganaParserOptions {
   hiraganas: string
   configs?: KeyConfigs
 }
@@ -11,9 +11,9 @@ export interface GameParserOption {
  * タイピングゲーム向けのパーサー
  * パースしたいひらがなを引数に渡して初期化します
  */
-export class GameParser {
+export class HiraganaParser {
   /** パーサーのオプション */
-  private options: GameParserOption
+  private options: HiraganaParserOptions
 
   private roman: Roman
   private answers: string[]
@@ -42,7 +42,7 @@ export class GameParser {
     return this.options.hiraganas.replace(this._inputedHiragana, '')
   }
 
-  constructor (options: GameParserOption) {
+  constructor (options: HiraganaParserOptions) {
     this.options = options
     this.roman = hiraganaToRomans(options.hiraganas, options.configs)
     this.answers = makeAnswers(this.roman).sort((a, b) => { return a.length - b.length })
