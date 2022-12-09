@@ -24,6 +24,10 @@ console.log(parser.isComplete())
 console.log(parser.inputedRoma)
 // 入力が終わっていない文字(いろんな組み合わせがあるので、その中から最短のもの)
 console.log(parser.notInputedRoma)
+// 入力済みのひらがな
+console.log(parser.inputedHiragana)
+// 入力が終わっていないひらがな
+console.log(parser.notInputedHiragana)
 ```
 
 #### 出力
@@ -34,6 +38,8 @@ true    // i は入力できるので受け付ける
 false   // 最後まで入力されていないのでfalse
 ki      // ki まで入力済み
 nnniku  // nnniku があと必要な入力
+き      // ki まで入力済み
+んにく   // nnniku があと必要な入力
 ```
 
 ### サンプル2
