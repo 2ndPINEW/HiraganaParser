@@ -1,6 +1,6 @@
-import { GameParser } from "./core/game";
+import { HiraganaParser } from "./core/game";
 
-const parser = new GameParser({ hiraganas: 'きんにく' })
+const parser = new HiraganaParser({ hiraganas: 'きんにく' })
 console.log(parser.input('k'))
 console.log(parser.input('n'))
 console.log(parser.input('i'))

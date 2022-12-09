@@ -10,5 +10,8 @@
     "outDir": "lib"
   },
   "include": ["src"],
-  "exclude": ["src/**/*.spec.ts"]
+  "exclude": [
+    "src/dev.ts",
+    "src/**/*.spec.ts"
+  ]
 }
