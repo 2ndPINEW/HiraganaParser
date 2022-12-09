@@ -61,6 +61,9 @@ const romanToHiraganas = (roman: Roman, inputedRoma: String, answers: string[]) 
       makeHiraganas(roman, '', answers)
     }
   })
+  if (!inputedRoma) {
+    makeHiraganas(roman, '', answers)
+  }
   return answers
 }
 
