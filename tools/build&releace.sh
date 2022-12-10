@@ -10,3 +10,6 @@ npm version $1
 git push
 git push origin --tags
 npm publish ./
+git checkout master
+git merge develop
+git checkout develop
