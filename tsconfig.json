@@ -9,7 +9,7 @@
     "strict": true,
     "lib": ["ESNext"],
     "types": ["node", "jest"],
-    "outDir": "lib"
+    "outDir": "lib/esm"
   },
   "include": ["src"],
   "exclude": [
