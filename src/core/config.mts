@@ -118,7 +118,7 @@ export const KEY_CONFIGS: KeyConfigs = [
   },
   {
     key: "ふ",
-    origins: ["hu", "fu"],
+    origins: ["fu", "hu"],
   },
   {
     key: "へ",
