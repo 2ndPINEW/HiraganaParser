@@ -9,7 +9,6 @@
   "include": ["src"],
   "exclude": [
     "src/dev.mts",
-    "src/bin/*",
     "src/**/*.spec.ts"
   ]
 }
