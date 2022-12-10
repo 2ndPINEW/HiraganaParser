@@ -64,5 +64,15 @@ console.log(hiraganaToRomas('ねっこ'))
 ]
 ```
 
+### サンプル3
+ブラウザ標準ESM
+####
+```javascript
+<script type="module">
+import { hiraganaToRomas } from "https://packages.obake.land/hiragana-parser/index.min.js"
+console.log(hiraganaToRomas('やっほー'))
+</script>
+```
+
 ### キー配列のカスタム
 キー配列をカスタマイズしたい場合(「ci」で「き」と入力みたいなの)は 第二引数に `KeyConfigs` を渡すとカスタマイズできます、詳細は型と初期値の`KEY_CONFIGS`を参照してください
