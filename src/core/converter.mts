@@ -53,7 +53,6 @@ export const romaToHiranaga = (roman: Roman, inputedRoma: string): string => {
  * 入力済みのローマ字からパースできてるひらがなの一覧を返す
  */
 const romanToHiraganas = (roman: Roman, inputedRoma: String, answers: string[]) => {
-  console.log(inputedRoma)
   roman.children.forEach(child => {
     if (inputedRoma.startsWith(child.roma)) {
       romanToHiraganas(child, inputedRoma.replace(child.roma, ''), answers)
