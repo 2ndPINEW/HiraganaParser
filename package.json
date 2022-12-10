@@ -1,6 +1,6 @@
 {
   "name": "hiragana-parser",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "",
   "module": "lib/esm/index.mjs",
   "types": "lib/esm/index.d.mts",
