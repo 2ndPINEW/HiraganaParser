@@ -12,7 +12,7 @@
     "build": "yarn prebuild && run-p build:*",
     "build:common": "tsc",
     "build:esm": "tsc -p tsconfig.esm.json",
-    "bundle:esm": "deno run --allow-read --allow-env --allow-run src/bin/esbundle.js && mkdir lib/bundle && yarn terser -c -m ---module -o lib/bundle/index.min.js tmp/index.bundle.js"
+    "bundle:esm": "deno run --allow-read --allow-env --allow-run tools/esbundle.js && mkdir lib/bundle && yarn terser -c -m ---module -o lib/bundle/index.min.js tmp/index.bundle.js"
   },
   "repository": {
     "type": "git",
