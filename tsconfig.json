@@ -11,7 +11,7 @@
   },
   "include": ["src"],
   "exclude": [
-    "src/dev.ts",
+    "src/dev.mts",
     "src/**/*.spec.ts"
   ]
 }

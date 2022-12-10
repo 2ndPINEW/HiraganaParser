@@ -1,5 +1,5 @@
-import { KEY_CONFIGS } from "./config";
-import { KeyConfigs } from "./parser.interface";
+import { KEY_CONFIGS } from "./config.mjs";
+import { KeyConfigs } from "./parser.interface.mjs";
 
 let keyConfigs = KEY_CONFIGS
 

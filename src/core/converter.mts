@@ -1,6 +1,6 @@
-import { KEY_CONFIGS } from "./config"
-import { hiraganaToRomans, Roman } from "./parser"
-import { KeyConfigs } from "./parser.interface"
+import { KEY_CONFIGS } from "./config.mjs"
+import { hiraganaToRomans, Roman } from "./parser.mjs"
+import { KeyConfigs } from "./parser.interface.mjs"
 
 /**
  * ひらがなからローマ字入力できる組み合わせを全部返す
@@ -53,7 +53,6 @@ export const romaToHiranaga = (roman: Roman, inputedRoma: string): string => {
  * 入力済みのローマ字からパースできてるひらがなの一覧を返す
  */
 const romanToHiraganas = (roman: Roman, inputedRoma: String, answers: string[]) => {
-  console.log(inputedRoma)
   roman.children.forEach(child => {
     if (inputedRoma.startsWith(child.roma)) {
       romanToHiraganas(child, inputedRoma.replace(child.roma, ''), answers)

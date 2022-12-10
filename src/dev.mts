@@ -1,4 +1,4 @@
-import { HiraganaParser } from "./core/game";
+import { HiraganaParser } from "./core/game.mjs";
 
 const parser = new HiraganaParser({ hiraganas: 'きんにく' })
 console.log(parser.input('k'))

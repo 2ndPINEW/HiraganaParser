@@ -1,5 +1,5 @@
 // 名前付きでインポートします
-import { hiraganaToRomas } from '../';
+import { hiraganaToRomas } from '../index.mjs';
 
 describe('答えが一つだけ', () => {
   [
