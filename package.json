@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",
-  "module": "lib/esm/index.js",
-  "types": "lib/esm/index.d.ts",
+  "module": "lib/esm/index.mjs",
+  "types": "lib/esm/index.d.mts",
   "scripts": {
     "test": "jest",
     "dev": "npx ts-node src/dev.ts",

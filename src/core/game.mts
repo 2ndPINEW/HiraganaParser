@@ -1,6 +1,6 @@
-import { makeAnswers, romaToHiranaga } from "./converter"
-import { hiraganaToRomans, Roman } from "./parser"
-import { KeyConfigs } from "./parser.interface"
+import { makeAnswers, romaToHiranaga } from "./converter.mjs"
+import { hiraganaToRomans, Roman } from "./parser.mjs"
+import { KeyConfigs } from "./parser.interface.mjs"
 
 export interface HiraganaParserOptions {
   hiraganas: string

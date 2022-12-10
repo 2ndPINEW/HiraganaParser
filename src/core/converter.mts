@@ -1,6 +1,6 @@
-import { KEY_CONFIGS } from "./config"
-import { hiraganaToRomans, Roman } from "./parser"
-import { KeyConfigs } from "./parser.interface"
+import { KEY_CONFIGS } from "./config.mjs"
+import { hiraganaToRomans, Roman } from "./parser.mjs"
+import { KeyConfigs } from "./parser.interface.mjs"
 
 /**
  * ひらがなからローマ字入力できる組み合わせを全部返す
