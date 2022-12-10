@@ -12,4 +12,5 @@ git push origin --tags
 npm publish ./
 git checkout master
 git merge develop
+git push
 git checkout develop
