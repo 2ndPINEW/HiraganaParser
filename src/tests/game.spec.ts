@@ -1,5 +1,5 @@
 // 名前付きでインポートします
-import { HiraganaParser } from '..';
+import { HiraganaParser } from '../index.mjs';
 
 describe('HiraganaParserのテスト', () => {
   it ('きんにく - kni', () => {
