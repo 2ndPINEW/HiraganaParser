@@ -36,6 +36,13 @@ describe('ちっちゃいつが出てくる系', () => {
         'poxtsuchilya', 'poxtsuchixya', 'poxtsutya',
         'poxtsucya',    'poxtsucha'
       ],
+    },
+    {
+      hiragana: 'いっぬ',
+      ans: [
+        "iltunu", "ixtunu", "iltsunu", "ixtsunu",
+        "yiltunu", "yixtunu", "yiltsunu", "yixtsunu"
+      ]
     }
   ].forEach(test => {
     it(test.hiragana, () => {

@@ -35,4 +35,17 @@ describe('HiraganaParserのテスト', () => {
     expect(parser.notInputedHiragana).toBe('')
     expect(parser.isComplete()).toBe(true)
   })
+
+  it ('ねっこ - neec', () => {
+    const parser = new HiraganaParser({ hiraganas: 'ねっこ' })
+    expect(parser.input('n')).toBe(true)
+    expect(parser.input('e')).toBe(true)
+    expect(parser.input('e')).toBe(false)
+    expect(parser.input('c')).toBe(true)
+    expect(parser.inputedRoma).toBe('nec')
+    expect(parser.notInputedRoma).toBe('co')
+    expect(parser.inputedHiragana).toBe('ね')
+    expect(parser.notInputedHiragana).toBe('っこ')
+    expect(parser.isComplete()).toBe(false)
+  })
 })
