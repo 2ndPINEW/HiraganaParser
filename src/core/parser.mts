@@ -23,7 +23,7 @@ const addNextChild = (remainingHiraganas: string, parentRoman: Roman, duplicateF
   }
 
   // 「っ」の時はその次の文字を重ねたやつもいける
-  if (remainingHiraganas.startsWith('っ')) {
+  if (remainingHiraganas.startsWith('っ') && !isNextStartWithN(remainingHiraganas) && hasNextHiraganas(remainingHiraganas)) {
     const nextHiraganas = remainingHiraganas.slice(1)
     addNextChild(nextHiraganas, parentRoman, true)
   }
@@ -53,11 +53,22 @@ const isArrowOneNInput = (remainingHiraganas: string): boolean => {
   if (!remainingHiraganas.startsWith('ん')) {
     return false
   }
+
+  return !isNextStartWithN(remainingHiraganas) && hasNextHiraganas(remainingHiraganas)
+}
+
+const hasNextHiraganas = (remainingHiraganas: string): boolean => {
+  const nextHiraganas = remainingHiraganas.slice(1)
+  return !!nextHiraganas
+}
+
+/** 次の文字がNから入力できるかどうか */
+const isNextStartWithN = (remainingHiraganas: string): boolean => {
   const nextHiraganas = remainingHiraganas.slice(1)
   if (!nextHiraganas) return false
 
   const matchKeyConfigs = keyConfigs.filter(keyConfig => nextHiraganas.startsWith(keyConfig.key))
-  return !matchKeyConfigs.some(matchKeyConfig => 
+  return matchKeyConfigs.some(matchKeyConfig => 
     matchKeyConfig.origins.some(origin => origin.startsWith('n'))
   )
 }

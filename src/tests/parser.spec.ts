@@ -9,7 +9,7 @@ describe('答えが一つだけ', () => {
     }
   ].forEach(test => {
     it(test.hiragana, () => {
-      expect(hiraganaToRomas(test.hiragana)).toStrictEqual(test.ans)
+      expect(hiraganaToRomas(test.hiragana)).toEqual(expect.arrayContaining(test.ans))
     })
   })
 })
@@ -36,10 +36,17 @@ describe('ちっちゃいつが出てくる系', () => {
         'poxtsuchilya', 'poxtsuchixya', 'poxtsutya',
         'poxtsucya',    'poxtsucha'
       ],
+    },
+    {
+      hiragana: 'いっぬ',
+      ans: [
+        "iltunu", "ixtunu", "iltsunu", "ixtsunu",
+        "yiltunu", "yixtunu", "yiltsunu", "yixtsunu"
+      ]
     }
   ].forEach(test => {
     it(test.hiragana, () => {
-      expect(hiraganaToRomas(test.hiragana)).toStrictEqual(test.ans)
+      expect(hiraganaToRomas(test.hiragana)).toEqual(expect.arrayContaining(test.ans))
     })
   })
 })
@@ -67,7 +74,7 @@ describe('「ん」が出てくる', () => {
     }
   ].forEach(test => {
     it(test.hiragana, () => {
-      expect(hiraganaToRomas(test.hiragana)).toStrictEqual(test.ans)
+      expect(hiraganaToRomas(test.hiragana)).toEqual(expect.arrayContaining(test.ans))
     })
   })
 })
