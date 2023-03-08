@@ -76,3 +76,8 @@ console.log(hiraganaToRomas('やっほー'))
 
 ### キー配列のカスタム
 キー配列をカスタマイズしたい場合(「ci」で「き」と入力みたいなの)は 第二引数に `KeyConfigs` を渡すとカスタマイズできます、詳細は型と初期値の`KEY_CONFIGS`を参照してください
+
+
+# Lisence
+
+This project is licensed under the MIT License, see the LICENSE.txt file for details
