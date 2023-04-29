@@ -4,6 +4,7 @@
   "description": "",
   "module": "lib/esm/index.mjs",
   "types": "lib/esm/index.d.mts",
+  "type": "module",
   "scripts": {
     "test": "jest",
     "dev": "npx ts-node src/dev.ts",
