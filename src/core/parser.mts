@@ -29,7 +29,7 @@ const addNextChild = (remainingHiraganas: string, parentRoman: Roman, duplicateF
   }
 
   // 「ん」の時は次がnから始まらないならn一個でいける
-  if (isArrowOneNInput(remainingHiraganas)) {
+  if (isAllowOneNInput(remainingHiraganas)) {
     const nextRoman = new Roman('n', 'ん')
     parentRoman.addChild(nextRoman)
     const nextHiraganas = remainingHiraganas.slice(1)
@@ -48,7 +48,7 @@ const addNextChild = (remainingHiraganas: string, parentRoman: Roman, duplicateF
 }
 
 // 残りのひらがなてきに、「n」一つで「ん」を入力できるかどうか
-const isArrowOneNInput = (remainingHiraganas: string): boolean => {
+const isAllowOneNInput = (remainingHiraganas: string): boolean => {
   // 「ん」から始まってない場合はだめ
   if (!remainingHiraganas.startsWith('ん')) {
     return false
