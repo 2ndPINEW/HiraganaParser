@@ -9,7 +9,7 @@ describe('答えが一つだけ', () => {
     }
   ].forEach(test => {
     it(test.hiragana, () => {
-      expect(hiraganaToRomas(test.hiragana)).toEqual(expect.arrayContaining(test.ans))
+      expect(hiraganaToRomas(test.hiragana).sort()).toEqual(test.ans.sort())
     })
   })
 })
@@ -46,7 +46,7 @@ describe('ちっちゃいつが出てくる系', () => {
     }
   ].forEach(test => {
     it(test.hiragana, () => {
-      expect(hiraganaToRomas(test.hiragana)).toEqual(expect.arrayContaining(test.ans))
+      expect(hiraganaToRomas(test.hiragana).sort()).toEqual(test.ans.sort())
     })
   })
 })
@@ -74,7 +74,7 @@ describe('「ん」が出てくる', () => {
     }
   ].forEach(test => {
     it(test.hiragana, () => {
-      expect(hiraganaToRomas(test.hiragana)).toEqual(expect.arrayContaining(test.ans))
+      expect(hiraganaToRomas(test.hiragana).sort()).toEqual(test.ans.sort())
     })
   })
 })
