@@ -56,11 +56,6 @@ const isAllowDuplicateFirstLetter = (remainingHiraganas: string): boolean => {
 
 // 残りのひらがなてきに、「n」一つで「ん」を入力できるかどうか
 const isAllowOneNInput = (remainingHiraganas: string): boolean => {
-  // 「ん」から始まってない場合はだめ
-  if (!remainingHiraganas.startsWith('ん')) {
-    return false
-  }
-
   return remainingHiraganas.startsWith('ん')
       && !isNextStartWithN(remainingHiraganas)
       && hasNextHiraganas(remainingHiraganas)
