@@ -9,7 +9,7 @@ describe('答えが一つだけ', () => {
     }
   ].forEach(test => {
     it(test.hiragana, () => {
-      expect(hiraganaToRomas(test.hiragana)).toEqual(expect.arrayContaining(test.ans))
+      expect(hiraganaToRomas(test.hiragana).sort()).toEqual(test.ans.sort())
     })
   })
 })
@@ -43,10 +43,22 @@ describe('ちっちゃいつが出てくる系', () => {
         "iltunu", "ixtunu", "iltsunu", "ixtsunu",
         "yiltunu", "yixtunu", "yiltsunu", "yixtsunu"
       ]
+    },
+    {
+      hiragana: 'ぴっあ',
+      ans: [
+        'piltsua', 'piltua', 'pixtsua', 'pixtua'
+      ]
+    },
+    {
+      hiragana: 'ぴっや',
+      ans: [
+        'piltsuya', 'piltuya', 'pixtsuya', 'pixtuya'
+      ]
     }
   ].forEach(test => {
     it(test.hiragana, () => {
-      expect(hiraganaToRomas(test.hiragana)).toEqual(expect.arrayContaining(test.ans))
+      expect(hiraganaToRomas(test.hiragana).sort()).toEqual(test.ans.sort())
     })
   })
 })
@@ -71,10 +83,21 @@ describe('「ん」が出てくる', () => {
         "pan'ko", "pan'co",
         'paxnko', 'paxnco'
       ]
+    },
+    {
+      hiragana: 'たんい',
+      ans: [
+        "tan'i",
+        "tan'yi",
+        "tanni",
+        "tannyi",
+        "taxni",
+        "taxnyi",
+      ]
     }
   ].forEach(test => {
     it(test.hiragana, () => {
-      expect(hiraganaToRomas(test.hiragana)).toEqual(expect.arrayContaining(test.ans))
+      expect(hiraganaToRomas(test.hiragana).sort()).toEqual(test.ans.sort())
     })
   })
 })

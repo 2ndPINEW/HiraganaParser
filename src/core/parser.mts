@@ -23,13 +23,13 @@ const addNextChild = (remainingHiraganas: string, parentRoman: Roman, duplicateF
   }
 
   // 「っ」の時はその次の文字を重ねたやつもいける
-  if (remainingHiraganas.startsWith('っ') && !isNextStartWithN(remainingHiraganas) && hasNextHiraganas(remainingHiraganas)) {
+  if (isAllowDuplicateFirstLetter(remainingHiraganas)) {
     const nextHiraganas = remainingHiraganas.slice(1)
     addNextChild(nextHiraganas, parentRoman, true)
   }
 
-  // 「ん」の時は次がnから始まらないならn一個でいける
-  if (isArrowOneNInput(remainingHiraganas)) {
+  // 「ん」の時は次がnから始まらなくて子音で始まらないならn一個でいける
+  if (isAllowOneNInput(remainingHiraganas)) {
     const nextRoman = new Roman('n', 'ん')
     parentRoman.addChild(nextRoman)
     const nextHiraganas = remainingHiraganas.slice(1)
@@ -47,14 +47,19 @@ const addNextChild = (remainingHiraganas: string, parentRoman: Roman, duplicateF
   })
 }
 
-// 残りのひらがなてきに、「n」一つで「ん」を入力できるかどうか
-const isArrowOneNInput = (remainingHiraganas: string): boolean => {
-  // 「ん」から始まってない場合はだめ
-  if (!remainingHiraganas.startsWith('ん')) {
-    return false
-  }
+const isAllowDuplicateFirstLetter = (remainingHiraganas: string): boolean => {
+  return remainingHiraganas.startsWith('っ')
+      && !isNextStartWithN(remainingHiraganas)
+      && hasNextHiraganas(remainingHiraganas)
+      && !isNextStartWithConsonant(remainingHiraganas)
+}
 
-  return !isNextStartWithN(remainingHiraganas) && hasNextHiraganas(remainingHiraganas)
+// 残りのひらがなてきに、「n」一つで「ん」を入力できるかどうか
+const isAllowOneNInput = (remainingHiraganas: string): boolean => {
+  return remainingHiraganas.startsWith('ん')
+      && !isNextStartWithN(remainingHiraganas)
+      && hasNextHiraganas(remainingHiraganas)
+      && !isNextStartWithConsonant(remainingHiraganas)
 }
 
 const hasNextHiraganas = (remainingHiraganas: string): boolean => {
@@ -62,7 +67,7 @@ const hasNextHiraganas = (remainingHiraganas: string): boolean => {
   return !!nextHiraganas
 }
 
-/** 次の文字がNから入力できるかどうか */
+/** 次の文字がNから始まっているかどうか */
 const isNextStartWithN = (remainingHiraganas: string): boolean => {
   const nextHiraganas = remainingHiraganas.slice(1)
   if (!nextHiraganas) return false
@@ -71,6 +76,21 @@ const isNextStartWithN = (remainingHiraganas: string): boolean => {
   return matchKeyConfigs.some(matchKeyConfig => 
     matchKeyConfig.origins.some(origin => origin.startsWith('n'))
   )
+}
+
+/** 次の文字が子音から始まっているかどうか */
+const isNextStartWithConsonant = (remainingHiraganas: string): boolean => {
+  const nextHiraganas = remainingHiraganas.slice(1)
+  if (!nextHiraganas) return false
+
+  const matchKeyConfigs = keyConfigs.filter(keyConfig => nextHiraganas.startsWith(keyConfig.key))
+  return matchKeyConfigs.some(matchKeyConfig =>
+    matchKeyConfig.origins.some(origin => isConsonant(origin[0]))
+  )
+}
+
+const isConsonant = (char: string): boolean => {
+  return ['a', 'i', 'u', 'e', 'o', 'y'].includes(char)
 }
 
 export class Roman {

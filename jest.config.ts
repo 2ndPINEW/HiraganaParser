@@ -1,15 +1,15 @@
-import { Config } from '@jest/types';
+import { Config } from "@jest/types";
 
 const config: Config.InitialOptions = {
-  preset: 'ts-jest',
-  testMatch: ['<rootDir>src/**/*.spec.ts'],
-  resolver: '<rootDir>/tools/jest-mjs-resolver.js',
-  testEnvironment: 'node',
+  preset: "ts-jest",
+  testMatch: ["<rootDir>src/**/*.spec.ts"],
+  resolver: "<rootDir>/tools/jest-mjs-resolver.cjs",
+  testEnvironment: "node",
   collectCoverage: true,
-  extensionsToTreatAsEsm: ['.mts'],
+  extensionsToTreatAsEsm: [".mts"],
   transform: {
-    '^.+\\.mts?$': [
-      'ts-jest',
+    "^.+\\.mts?$": [
+      "ts-jest",
       {
         useESM: true,
       },
