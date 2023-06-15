@@ -43,6 +43,18 @@ describe('ちっちゃいつが出てくる系', () => {
         "iltunu", "ixtunu", "iltsunu", "ixtsunu",
         "yiltunu", "yixtunu", "yiltsunu", "yixtsunu"
       ]
+    },
+    {
+      hiragana: 'ぴっあ',
+      ans: [
+        'piltsua', 'piltua', 'pixtsua', 'pixtua'
+      ]
+    },
+    {
+      hiragana: 'ぴっや',
+      ans: [
+        'piltsuya', 'piltuya', 'pixtsuya', 'pixtuya'
+      ]
     }
   ].forEach(test => {
     it(test.hiragana, () => {
@@ -70,6 +82,17 @@ describe('「ん」が出てくる', () => {
         'pannko', 'pannco',
         "pan'ko", "pan'co",
         'paxnko', 'paxnco'
+      ]
+    },
+    {
+      hiragana: 'たんい',
+      ans: [
+        "tan'i",
+        "tan'yi",
+        "tanni",
+        "tannyi",
+        "taxni",
+        "taxnyi",
       ]
     }
   ].forEach(test => {
